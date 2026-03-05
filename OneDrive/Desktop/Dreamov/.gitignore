@@ -1,0 +1,8 @@
+# Ignore everything except the Dreamov website files
+*
+!.gitignore
+!index.html
+!style.css
+!app.js
+!images/
+!images/**

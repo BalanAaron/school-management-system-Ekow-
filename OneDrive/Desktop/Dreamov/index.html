@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Dreammov – The Best Place to Discover, Buy or Rent a Home in Ghana. Our AI-Powered platform assists you find a decent home or office without stress." />
+  <meta property="og:title" content="Dreammov – Buy or Rent a Home in Ghana" />
+  <meta property="og:description"
+    content="The Best Place to Discover, Buy or Rent a Home in 🇬🇭. AI-Powered real estate listings." />
+  <title>Dreammov – The Best Place to Buy or Rent a Home in Ghana</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap"
+    rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css?v=1.1" />
+</head>
+
+<body>
+
+  <!-- ===================== PRELOADER ===================== -->
+  <div id="preloader">
+    <div class="preloader-inner">
+      <div class="preloader-logo">Dreamm<span>ov</span></div>
+      <div class="preloader-bar">
+        <div class="preloader-progress"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo" id="nav-logo-link">
+        Dreamm<span>ov</span>
+      </a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li class="has-dropdown">
+          <a href="#listings" class="nav-link">For Rent <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown">
+            <li><a href="#listings">Houses for Rent in Ghana</a></li>
+            <li><a href="#listings">Single Room Self Contain</a></li>
+            <li><a href="#listings">Apartments</a></li>
+            <li><a href="#listings">Full Houses</a></li>
+            <li><a href="#listings">Chamber and Hall</a></li>
+            <li><a href="#listings">Office Spaces</a></li>
+            <li><a href="#listings">Short Stays</a></li>
+          </ul>
+        </li>
+        <li class="has-dropdown">
+          <a href="#listings" class="nav-link">For Sale <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown">
+            <li><a href="#listings">Apartments for Sale</a></li>
+            <li><a href="#listings">Studio Apartments</a></li>
+            <li><a href="#listings">Commercial Properties</a></li>
+            <li><a href="#listings">Houses for Sale</a></li>
+            <li><a href="#listings">New Development</a></li>
+          </ul>
+        </li>
+        <li class="has-dropdown">
+          <a href="#listings" class="nav-link">Lands <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown">
+            <li><a href="#listings">Lands for Sale in Kumasi</a></li>
+            <li><a href="#listings">Lands for Sale in Accra</a></li>
+          </ul>
+        </li>
+        <li><a href="#blog" class="nav-link">Blog</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="btn-outline" id="btn-login">
+          <i class="fas fa-user"></i> Sign In
+        </button>
+        <a href="#submit" class="btn-primary">
+          <i class="fas fa-plus"></i> Add Property
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===================== AUTH MODAL ===================== -->
+  <div class="modal-overlay" id="auth-modal">
+    <div class="modal-card">
+      <button class="modal-close" id="modal-close"><i class="fas fa-times"></i></button>
+      <div class="modal-tabs">
+        <button class="modal-tab active" id="tab-signin" data-tab="signin">Sign In</button>
+        <button class="modal-tab" id="tab-register" data-tab="register">New Account</button>
+      </div>
+
+      <div class="modal-body" id="signin-form">
+        <h3>Welcome Back</h3>
+        <p>Sign in to access your dream home listings</p>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="you@example.com" id="signin-email" />
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" placeholder="••••••••" id="signin-password" />
+        </div>
+        <button class="btn-primary full-width" id="signin-btn">Sign In</button>
+        <p class="form-footer">Forgot password? <a href="#" id="forgot-link">Reset here</a></p>
+      </div>
+
+      <div class="modal-body hidden" id="register-form">
+        <h3>Create Account</h3>
+        <p>Join thousands of property seekers in Ghana</p>
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" placeholder="Your full name" id="reg-name" />
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="you@example.com" id="reg-email" />
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" placeholder="Create a password" id="reg-password" />
+        </div>
+        <button class="btn-primary full-width" id="register-btn">Create Account</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== HERO SECTION ===================== -->
+  <section id="home" class="hero">
+    <div class="hero-bg">
+      <img src="images/hero_bg.png" alt="Luxury home in Ghana" class="hero-img" id="hero-bg-img" />
+      <div class="hero-overlay"></div>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-badge"><i class="fas fa-robot"></i> AI-Powered Platform</div>
+      <h1 class="hero-title">
+        The Best Place to <br />
+        <span class="gradient-text">Discover, Buy or Rent</span><br />
+        a Home in 🇬🇭
+      </h1>
+      <p class="hero-subtitle">Our AI-Powered App will assist you find a decent home or office without stress.</p>
+
+      <!-- Search Bar -->
+      <div class="search-box" id="search-box">
+        <div class="search-tabs">
+          <button class="search-tab active" data-filter="all" id="search-tab-all">All</button>
+          <button class="search-tab" data-filter="sale" id="search-tab-sale">For Sale</button>
+          <button class="search-tab" data-filter="rent" id="search-tab-rent">For Rent</button>
+          <button class="search-tab" data-filter="short-stay" id="search-tab-stay">Short Stays</button>
+        </div>
+        <div class="search-inputs">
+          <div class="search-input-group">
+            <i class="fas fa-map-marker-alt"></i>
+            <input type="text" placeholder="Location – e.g. Kumasi, Accra" id="search-location" />
+          </div>
+          <div class="search-input-group">
+            <i class="fas fa-home"></i>
+            <select id="search-type">
+              <option value="">Property Type</option>
+              <option value="houses">Houses</option>
+              <option value="apartments">Apartments</option>
+              <option value="office">Office Spaces</option>
+              <option value="land">Land</option>
+              <option value="single-rooms">Single Rooms</option>
+              <option value="townhouse">Townhouse</option>
+              <option value="villa">Villa</option>
+            </select>
+          </div>
+          <div class="search-input-group">
+            <i class="fas fa-tag"></i>
+            <select id="search-price">
+              <option value="">Price Range</option>
+              <option value="0-500">Under GHS 500/mo</option>
+              <option value="500-1000">GHS 500 – 1,000/mo</option>
+              <option value="1000-3000">GHS 1,000 – 3,000/mo</option>
+              <option value="3000+">GHS 3,000+</option>
+            </select>
+          </div>
+          <button class="btn-search" id="btn-search">
+            <i class="fas fa-search"></i> Search
+          </button>
+        </div>
+      </div>
+
+      <!-- Hero Stats -->
+      <div class="hero-stats">
+        <div class="stat-item" id="stat-properties"><span class="stat-num" data-target="200">0</span>+
+          <small>Properties</small>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item" id="stat-cities"><span class="stat-num" data-target="8">0</span>+ <small>Cities</small>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item" id="stat-clients"><span class="stat-num" data-target="1200">0</span>+ <small>Happy
+            Clients</small></div>
+      </div>
+    </div>
+
+    <div class="hero-scroll-indicator">
+      <div class="scroll-dot"></div>
+      <span>Scroll to explore</span>
+    </div>
+  </section>
+
+  <!-- ===================== PROPERTY TYPES ===================== -->
+  <section id="types" class="section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label"><i class="fas fa-th-large"></i> Browse Categories</p>
+        <h2 class="section-title">Explore Property Types</h2>
+        <p class="section-sub">Find exactly what you're looking for from our diverse property categories across Ghana.
+        </p>
+      </div>
+      <div class="types-grid" id="types-grid">
+        <!-- Rendered by app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FEATURED LISTINGS ===================== -->
+  <section id="listings" class="section bg-light">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label"><i class="fas fa-star"></i> Top Picks</p>
+        <h2 class="section-title">Discover Our Featured Listings</h2>
+        <p class="section-sub">Hand-picked properties that match modern living standards across Ghana's key cities.</p>
+        <div class="filter-tabs" id="listing-filter-tabs">
+          <button class="filter-tab active" data-filter="all" id="filter-all">All</button>
+          <button class="filter-tab" data-filter="sale" id="filter-sale">For Sale</button>
+          <button class="filter-tab" data-filter="rent" id="filter-rent">For Rent</button>
+          <button class="filter-tab" data-filter="short-stay" id="filter-stay">Short Stay</button>
+        </div>
+      </div>
+      <div class="listings-grid" id="listings-grid">
+        <!-- Rendered by app.js -->
+      </div>
+      <div class="section-cta">
+        <button class="btn-outline-dark" id="load-more-btn">
+          Load More Properties <i class="fas fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== HOW IT WORKS ===================== -->
+  <section id="how" class="section how-section">
+    <div class="how-bg-gradient"></div>
+    <div class="container">
+      <div class="section-header light">
+        <p class="section-label"><i class="fas fa-bolt"></i> Simple Process</p>
+        <h2 class="section-title">Smarter Listings, Faster Deals</h2>
+        <p class="section-sub">Find, List, and Move with Ease</p>
+      </div>
+      <div class="how-grid" id="how-grid">
+        <!-- Rendered by app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CITIES SECTION ===================== -->
+  <section id="cities" class="section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label"><i class="fas fa-city"></i> Explore Locations</p>
+        <h2 class="section-title">Properties by Cities</h2>
+        <p class="section-sub">Explore real estate opportunities across Ghana's most vibrant cities.</p>
+      </div>
+      <div class="cities-grid" id="cities-grid">
+        <!-- Rendered by app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== POPULAR PROPERTIES ===================== -->
+  <section id="popular" class="section bg-light">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label"><i class="fas fa-fire"></i> Trending Now</p>
+        <h2 class="section-title">Discover Popular Properties</h2>
+        <div class="filter-tabs" id="popular-filter-tabs">
+          <button class="filter-tab active" data-filter="sale" id="popular-sale">For Sale</button>
+          <button class="filter-tab" data-filter="rent" id="popular-rent">For Rent</button>
+        </div>
+      </div>
+      <div class="popular-grid" id="popular-grid">
+        <!-- Rendered by app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== WHY CHOOSE US ===================== -->
+  <section id="why" class="section why-section">
+    <div class="container">
+      <div class="why-inner">
+        <div class="why-text">
+          <p class="section-label"><i class="fas fa-shield-alt"></i> Why Dreammov</p>
+          <h2 class="section-title">Ghana's Most Trusted<br /><span class="gradient-text">Real Estate Platform</span>
+          </h2>
+          <p class="section-sub">We leverage AI-driven insights to connect buyers, renters and sellers seamlessly.</p>
+          <ul class="why-list" id="why-list">
+            <!-- Rendered by app.js -->
+          </ul>
+          <a href="#listings" class="btn-primary">Browse Properties</a>
+        </div>
+        <div class="why-visual">
+          <div class="why-card-stack" id="why-card-stack">
+            <!-- Rendered by app.js -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== BLOG SECTION ===================== -->
+  <section id="blog" class="section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label"><i class="fas fa-newspaper"></i> Latest News</p>
+        <h2 class="section-title">From Our Blog</h2>
+        <p class="section-sub">Latest news, tips, and updates from Ghana's real estate industry.</p>
+      </div>
+      <div class="blog-grid" id="blog-grid">
+        <!-- Rendered by app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CTA SECTION ===================== -->
+  <section id="submit" class="section cta-section">
+    <div class="cta-bg"></div>
+    <div class="container">
+      <div class="cta-inner">
+        <div class="cta-text">
+          <h2>Need help? Talk to our expert.</h2>
+          <p>Talk to our experts or Browse through more property listings. We're here to help you 24/7.</p>
+          <div class="cta-buttons">
+            <a href="#contact" class="btn-primary">Contact Us</a>
+            <a href="tel:+233200118372" class="btn-white">
+              <i class="fas fa-phone"></i> +233 200 118 372
+            </a>
+          </div>
+        </div>
+        <div class="cta-form-card">
+          <h3>List Your Property</h3>
+          <p>Reach thousands of buyers and renters instantly</p>
+          <form id="submit-property-form">
+            <div class="form-group">
+              <input type="text" placeholder="Property Title" required id="prop-title" />
+            </div>
+            <div class="form-group">
+              <select required id="prop-type">
+                <option value="">Property Type</option>
+                <option>House</option>
+                <option>Apartment</option>
+                <option>Office Space</option>
+                <option>Land</option>
+                <option>Hostel</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <select required id="prop-status">
+                <option value="">For Sale / Rent</option>
+                <option>For Sale</option>
+                <option>For Rent</option>
+                <option>Short Stay</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <input type="text" placeholder="Location (City, Area)" required id="prop-location" />
+            </div>
+            <div class="form-group">
+              <input type="number" placeholder="Price (GHS)" required id="prop-price" />
+            </div>
+            <div class="form-group">
+              <input type="text" placeholder="Your WhatsApp Number" required id="prop-contact" />
+            </div>
+            <button type="submit" class="btn-primary full-width" id="submit-prop-btn">
+              Submit Property <i class="fas fa-arrow-right"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT SECTION ===================== -->
+  <section id="contact" class="section bg-light">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label"><i class="fas fa-envelope"></i> Get in Touch</p>
+        <h2 class="section-title">Contact Us</h2>
+        <p class="section-sub">We'd love to hear from you. Reach out anytime.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info" id="contact-info">
+          <!-- Rendered by app.js -->
+        </div>
+        <form class="contact-form" id="contact-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Full Name</label>
+              <input type="text" placeholder="Your name" required id="contact-name" />
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" placeholder="you@example.com" required id="contact-email" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Subject</label>
+            <input type="text" placeholder="How can we help?" id="contact-subject" />
+          </div>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea rows="5" placeholder="Tell us more..." required id="contact-message"></textarea>
+          </div>
+          <button type="submit" class="btn-primary" id="contact-submit-btn">
+            Send Message <i class="fas fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TOAST NOTIFICATION ===================== -->
+  <div class="toast" id="toast">
+    <i class="fas fa-check-circle"></i>
+    <span id="toast-message">Success!</span>
+  </div>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="#" class="nav-logo">Dreamm<span>ov</span></a>
+            <p>The Best Place to Discover, Buy or Rent a Home in Ghana 🇬🇭. Powered by AI-driven insights for smarter
+              real estate decisions.</p>
+            <div class="social-links" id="social-links">
+              <a href="#" aria-label="Facebook" id="social-fb"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" aria-label="Twitter" id="social-tw"><i class="fab fa-twitter"></i></a>
+              <a href="#" aria-label="Instagram" id="social-ig"><i class="fab fa-instagram"></i></a>
+              <a href="#" aria-label="LinkedIn" id="social-li"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#" aria-label="YouTube" id="social-yt"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#">Terms of Use</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Pricing Plans</a></li>
+              <li><a href="#">Our Services</a></li>
+              <li><a href="#contact">Contact</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">FAQs</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Discovery</h4>
+            <ul>
+              <li><a href="#">Sunyani</a></li>
+              <li><a href="#">Accra</a></li>
+              <li><a href="#">Kumasi</a></li>
+              <li><a href="#">Takoradi</a></li>
+              <li><a href="#">Tamale</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Popular Search</h4>
+            <ul>
+              <li><a href="#">Apartment for Sale</a></li>
+              <li><a href="#">Apartment for Rent</a></li>
+              <li><a href="#">Offices for Sale</a></li>
+              <li><a href="#">Offices for Rent</a></li>
+              <li><a href="#">Houses in Accra</a></li>
+              <li><a href="#">Land in Kumasi</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© Dreammov 2025 – All rights reserved | Powered by <strong>Basil Technologies</strong></p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================== AI CHAT WIDGET ===================== -->
+  <div class="ai-chat-widget" id="ai-chat-widget" aria-label="AI Property Assistant">
+
+    <!-- Chat Window -->
+    <div class="ai-chat-window" id="ai-chat-window" role="dialog" aria-labelledby="ai-chat-title">
+
+      <!-- Header -->
+      <div class="ai-chat-header">
+        <div class="ai-chat-header-avatar">
+          <i class="fas fa-robot"></i>
+          <span class="ai-online-dot"></span>
+        </div>
+        <div class="ai-chat-header-info">
+          <h4 id="ai-chat-title">Dreammov AI</h4>
+          <p>Your Smart Property Assistant</p>
+        </div>
+        <div class="ai-chat-header-actions">
+          <button class="ai-header-btn" id="ai-clear-btn" title="Clear chat" aria-label="Clear chat">
+            <i class="fas fa-trash-alt"></i>
+          </button>
+          <button class="ai-header-btn" id="ai-close-btn" title="Close chat" aria-label="Close chat">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Messages -->
+      <div class="ai-chat-messages" id="ai-chat-messages" aria-live="polite" aria-label="Chat messages">
+        <!-- Populated by app.js -->
+      </div>
+
+      <!-- Quick Suggestions -->
+      <div class="ai-suggestions" id="ai-suggestions">
+        <button class="ai-suggestion-chip" data-msg="What properties are available for rent?">🏠 For Rent</button>
+        <button class="ai-suggestion-chip" data-msg="Show me properties for sale in Accra">📍 Sale in Accra</button>
+        <button class="ai-suggestion-chip" data-msg="What is the cheapest property?">💰 Budget options</button>
+        <button class="ai-suggestion-chip" data-msg="How do I list my property?">➕ List property</button>
+      </div>
+
+      <!-- Input -->
+      <div class="ai-chat-input-bar">
+        <input type="text" id="ai-chat-input" placeholder="Ask about properties, prices, locations…" autocomplete="off"
+          aria-label="Type your message" maxlength="300" />
+        <button class="ai-send-btn" id="ai-send-btn" aria-label="Send message">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Launcher Bubble -->
+    <button class="ai-chat-launcher" id="ai-chat-launcher" aria-label="Open AI Assistant">
+      <span class="ai-launcher-icon open-icon"><i class="fas fa-robot"></i></span>
+      <span class="ai-launcher-icon close-icon hidden"><i class="fas fa-times"></i></span>
+      <span class="ai-chat-badge" id="ai-chat-badge">1</span>
+    </button>
+  </div>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- App.js -->
+  <script src="app.js?v=2.0"></script>
+
+  <!-- AI Chat Widget – Standalone fallback (runs after DOM is ready) -->
+  <script>
+    (function () {
+      'use strict';
+
+      // Properties data for AI responses
+      var PROPS = [
+        { title: '2-Bedroom Self-Contained Apartment', price: 'GHS 1,800/mo', location: 'East Legon, Accra', type: 'rent', image: 'images/property_apartment.png' },
+        { title: 'Hostel For Sale at Boadi', price: 'GHS 450,000', location: 'Boadi, Kumasi', type: 'sale', image: 'images/property_hostel.png' },
+        { title: 'Premium Office Space – Airport City', price: 'GHS 5,500/mo', location: 'Airport City, Accra', type: 'rent', image: 'images/property_office.png' },
+        { title: 'Modern Family House with Pool', price: 'GHS 850,000', location: 'Trasacco, Accra', type: 'sale', image: 'images/property_house.png' },
+        { title: 'Prime Land – 1 Plot Kumasi', price: 'GHS 75,000', location: 'Ahodwo, Kumasi', type: 'sale', image: 'images/property_land.png' },
+        { title: 'Cozy Short-Stay Apartment', price: 'GHS 250/night', location: 'Labone, Accra', type: 'rent', image: 'images/property_apartment.png' }
+      ];
+
+      function getResponse(msg) {
+        var m = msg.toLowerCase();
+        if (/^(hi|hello|hey|good)/.test(m)) {
+          return { text: '👋 Hi there! I\'m <strong>Dreammov AI</strong>, your smart property assistant.\n\nI can help you:\n• 🏠 Find properties to buy or rent\n• 📍 Explore listings by city\n• 💰 Get price estimates\n• ➕ List your property\n\nWhat are you looking for today?' };
+        }
+        if (/rent|for rent|renting|lease/.test(m)) {
+          return { text: '🏠 Here are our <strong>properties available for rent</strong>:', props: PROPS.filter(function (p) { return p.type === 'rent'; }) };
+        }
+        if (/sale|for sale|buy|buying|purchase/.test(m)) {
+          return { text: '🏷️ Here are our <strong>properties for sale</strong>:', props: PROPS.filter(function (p) { return p.type === 'sale'; }) };
+        }
+        if (/cheap|budget|affordable|low.?cost/.test(m)) {
+          return { text: '💰 Our <strong>most affordable listings</strong>:', props: PROPS.slice(0, 3) };
+        }
+        if (/accra/.test(m)) {
+          var r = PROPS.filter(function (p) { return p.location.toLowerCase().includes('accra'); });
+          return r.length ? { text: '📍 Found <strong>' + r.length + ' properties in Accra</strong>:', props: r } : { text: 'No listings in Accra right now, but new ones are added weekly! Contact us at +233 200 118 372.' };
+        }
+        if (/kumasi/.test(m)) {
+          var r = PROPS.filter(function (p) { return p.location.toLowerCase().includes('kumasi'); });
+          return r.length ? { text: '📍 Found <strong>' + r.length + ' properties in Kumasi</strong>:', props: r } : { text: 'No current listings in Kumasi. Contact us at +233 200 118 372 to be notified!' };
+        }
+        if (/apartment|flat/.test(m)) {
+          var r = PROPS.filter(function (p) { return p.image.includes('apartment'); });
+          return { text: '🏢 Here are our <strong>apartment listings</strong>:', props: r };
+        }
+        if (/office|commercial/.test(m)) {
+          var r = PROPS.filter(function (p) { return p.title.toLowerCase().includes('office'); });
+          return r.length ? { text: '🏗️ <strong>Office space available</strong>:', props: r } : { text: 'Limited office listings right now. Email us at info@dreammov.com for custom commercial space sourcing.' };
+        }
+        if (/land|plot/.test(m)) {
+          var r = PROPS.filter(function (p) { return p.title.toLowerCase().includes('land'); });
+          return r.length ? { text: '🌿 <strong>Land listings</strong> on Dreammov:', props: r } : { text: 'More land listings coming soon! Email info@dreammov.com with your requirements.' };
+        }
+        if (/list|add property|post|sell.*property/.test(m)) {
+          return { text: '🏠 <strong>How to List Your Property:</strong>\n\n1️⃣ Click "Add Property" in the navbar\n2️⃣ Fill in property details\n3️⃣ Add your WhatsApp number\n4️⃣ Submit – reviewed within 24 hrs!\n\n✅ It\'s <strong>FREE</strong> to list!\n📞 Need help? Call <strong>+233 200 118 372</strong>' };
+        }
+        if (/price|cost|how much|ghs/.test(m)) {
+          return { text: '💰 <strong>Property Price Ranges in Ghana:</strong>\n\n🛏️ Single Rooms: GHS 200 – 600/mo\n🏢 Apartments: GHS 800 – 5,000/mo\n🏠 Houses (Rent): GHS 1,500 – 8,000/mo\n🏡 Houses (Sale): GHS 120,000 – 2M+\n🏗️ Office: GHS 2,000 – 10,000/mo\n🌿 Land: GHS 30,000 – 500,000+\n\nWant listings in a specific price range? Just ask! 😊' };
+        }
+        if (/contact|phone|call|whatsapp|email/.test(m)) {
+          return { text: '📞 <strong>Contact Dreammov:</strong>\n\n📱 WhatsApp / Phone: <strong>+233 200 118 372</strong>\n📧 Email: <strong>info@dreammov.com</strong>\n📍 Kumasi, Ghana\n🕐 Mon – Sat, 8am – 6pm' };
+        }
+        if (/thank/.test(m)) {
+          return { text: 'You\'re very welcome! 😊 Happy house hunting! 🏡' };
+        }
+        if (/bye|goodbye/.test(m)) {
+          return { text: 'Goodbye! 👋 Come back anytime – your dream home awaits! 🏠✨' };
+        }
+        return { text: 'I can help you find properties to buy, rent, or list your own! Try asking:\n• "Show me properties for rent"\n• "Houses in Accra"\n• "How much does land cost?"\n• "How do I list my property?"' };
+      }
+
+      function initChatWidget() {
+        var launcher = document.getElementById('ai-chat-launcher');
+        var chatWin = document.getElementById('ai-chat-window');
+        var closeBtn = document.getElementById('ai-close-btn');
+        var clearBtn = document.getElementById('ai-clear-btn');
+        var msgArea = document.getElementById('ai-chat-messages');
+        var input = document.getElementById('ai-chat-input');
+        var sendBtn = document.getElementById('ai-send-btn');
+        var badge = document.getElementById('ai-chat-badge');
+        var chips = document.querySelectorAll('.ai-suggestion-chip');
+
+        if (!launcher || !chatWin || !msgArea) return;
+
+        // Remove old listeners if initAIChat from app.js already ran
+        // Re-clone the launcher to strip any existing listeners
+        var newLauncher = launcher.cloneNode(true);
+        launcher.parentNode.replaceChild(newLauncher, launcher);
+        launcher = newLauncher;
+
+        var isOpen = false;
+        var isTyping = false;
+        var welcomed = false;
+
+        function openChat() {
+          isOpen = true;
+          chatWin.classList.add('open');
+          if (badge) badge.style.display = 'none';
+          var openIcon = launcher.querySelector('.open-icon');
+          var closeIcon = launcher.querySelector('.close-icon');
+          if (openIcon) openIcon.style.display = 'none';
+          if (closeIcon) closeIcon.style.display = 'flex';
+          if (!welcomed) {
+            welcomed = true;
+            setTimeout(function () {
+              addBotMsg('👋 Hi! I\'m <strong>Dreammov AI</strong>, your property assistant for Ghana 🇬🇭.\n\nAsk me about properties for rent, sale, land, offices, or how to list your property!');
+            }, 400);
+          }
+          setTimeout(function () { if (input) input.focus(); }, 100);
+        }
+
+        function closeChat() {
+          isOpen = false;
+          chatWin.classList.remove('open');
+          var openIcon = launcher.querySelector('.open-icon');
+          var closeIcon = launcher.querySelector('.close-icon');
+          if (openIcon) openIcon.style.display = '';
+          if (closeIcon) closeIcon.style.display = 'none';
+        }
+
+        function addMsg(role, html, props) {
+          var wrap = document.createElement('div');
+          wrap.className = 'ai-msg ' + role;
+
+          if (role === 'bot') {
+            var av = document.createElement('div');
+            av.className = 'ai-msg-avatar';
+            av.innerHTML = '<i class="fas fa-robot"></i>';
+            wrap.appendChild(av);
+          }
+
+          var bubble = document.createElement('div');
+          bubble.className = 'ai-bubble';
+          bubble.innerHTML = html.replace(/\n/g, '<br>');
+          wrap.appendChild(bubble);
+          msgArea.appendChild(wrap);
+
+          if (props && props.length) {
+            props.slice(0, 3).forEach(function (p) {
+              var card = document.createElement('div');
+              card.className = 'ai-prop-result';
+              card.style.cursor = 'pointer';
+              card.innerHTML = '<img src="' + p.image + '" alt="' + p.title + '" style="width:100%;height:110px;object-fit:cover;border-radius:8px 8px 0 0;">' +
+                '<div class="ai-prop-result-body">' +
+                '<div class="ai-prop-result-price">' + p.price + '</div>' +
+                '<div class="ai-prop-result-title">' + p.title + '</div>' +
+                '<div class="ai-prop-result-loc"><i class="fas fa-map-marker-alt"></i> ' + p.location + '</div>' +
+                '</div>';
+              card.addEventListener('click', function () {
+                var el = document.getElementById('listings');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+                closeChat();
+              });
+              msgArea.appendChild(card);
+            });
+          }
+
+          msgArea.scrollTop = msgArea.scrollHeight;
+        }
+
+        function addBotMsg(html, props) { addMsg('bot', html, props); }
+        function addUserMsg(html) { addMsg('user', html, null); }
+
+        function showTyping() {
+          var el = document.createElement('div');
+          el.className = 'ai-typing';
+          el.id = 'ai-typing-indicator-inline';
+          el.innerHTML = '<div class="ai-msg-avatar"><i class="fas fa-robot"></i></div><div class="ai-typing-dots"><span></span><span></span><span></span></div>';
+          msgArea.appendChild(el);
+          msgArea.scrollTop = msgArea.scrollHeight;
+        }
+
+        function hideTyping() {
+          var el = document.getElementById('ai-typing-indicator-inline');
+          if (el) el.remove();
+        }
+
+        function send(text) {
+          var msg = (text || input.value || '').trim();
+          if (!msg || isTyping) return;
+          if (!text) input.value = '';
+
+          addUserMsg(msg);
+          isTyping = true;
+          showTyping();
+
+          setTimeout(function () {
+            hideTyping();
+            isTyping = false;
+            var r = getResponse(msg);
+            addBotMsg(r.text, r.props);
+          }, 900 + Math.random() * 500);
+        }
+
+        // Launcher click
+        launcher.addEventListener('click', function () {
+          if (isOpen) closeChat(); else openChat();
+        });
+
+        // Close btn
+        var cBtn = document.getElementById('ai-close-btn');
+        if (cBtn) cBtn.addEventListener('click', closeChat);
+
+        // Clear btn
+        var clBtn = document.getElementById('ai-clear-btn');
+        if (clBtn) clBtn.addEventListener('click', function () {
+          msgArea.innerHTML = '';
+          welcomed = false;
+          setTimeout(function () {
+            addBotMsg('👋 Chat cleared! How can I help you with your property search?');
+            welcomed = true;
+          }, 300);
+        });
+
+        // Send
+        if (sendBtn) sendBtn.addEventListener('click', function () { send(); });
+        if (input) input.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); }
+        });
+
+        // Chips
+        chips.forEach(function (chip) {
+          chip.addEventListener('click', function () {
+            if (!isOpen) openChat();
+            setTimeout(function () { send(chip.dataset.msg); }, 100);
+          });
+        });
+
+        // Show badge after 5s to attract attention
+        setTimeout(function () {
+          if (!isOpen && badge) {
+            badge.style.display = 'flex';
+            badge.textContent = '1';
+          }
+        }, 5000);
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initChatWidget);
+      } else {
+        initChatWidget();
+      }
+    })();
+  </script>
+</body>
+
+</html>
