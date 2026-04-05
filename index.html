@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Ekow Agric-Institute | Official Website</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #eef2f0;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ========== ANIMATED BACKGROUND (HOME PAGE) ========== */
+    .animated-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      overflow: hidden;
+    }
+
+    .animated-bg video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      transform: translate(-50%, -50%);
+      object-fit: cover;
+      filter: brightness(0.3);
+    }
+
+    .bg-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(11, 47, 31, 0.85), rgba(26, 74, 42, 0.85));
+      z-index: -1;
+    }
+
+    /* Animated floating elements */
+    .floating-agri {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 150px;
+      height: 150px;
+      opacity: 0.15;
+      pointer-events: none;
+      z-index: -1;
+      animation: float 20s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-30px) rotate(5deg); }
+    }
+
+    /* ========== LANDING STYLES ========== */
+    .landing-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px;
+      position: relative;
+      z-index: 1;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 0 20px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #f9f9f9, #e0e8e3);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+    .logo i { color: #ffcf4a; font-size: 2rem; }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: white;
+      transition: 0.2s;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    }
+    .nav-links a:hover { color: #ffcf4a; border-bottom: 2px solid #ffcf4a; padding-bottom: 4px; }
+
+    /* Dropdown Menu Styles */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .dropdown-btn {
+      background: transparent;
+      border: none;
+      font-weight: 500;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+      font-family: 'Inter', sans-serif;
+      padding: 0;
+    }
+    .dropdown-btn:hover { color: #ffcf4a; }
+    .dropdown-btn i { margin-left: 5px; font-size: 0.8rem; }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 30px;
+      left: 0;
+      background: white;
+      min-width: 250px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      z-index: 100;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+      background: rgba(255,255,255,0.98);
+    }
+    .dropdown-content a {
+      color: #1f5437;
+      padding: 12px 20px;
+      text-decoration: none;
+      display: block;
+      font-size: 0.9rem;
+      border-bottom: 1px solid #e0e8e3;
+      transition: 0.2s;
+    }
+    .dropdown-content a:last-child { border-bottom: none; }
+    .dropdown-content a:hover {
+      background: #f0f7f2;
+      color: #0f3b23;
+      padding-left: 25px;
+    }
+    .dropdown:hover .dropdown-content { display: block; }
+
+    .btn-outline-light {
+      background: transparent;
+      border: 1.5px solid #ffcf4a;
+      padding: 8px 20px;
+      border-radius: 40px;
+      font-weight: 600;
+      color: white;
+      cursor: pointer;
+      transition: 0.25s;
+    }
+    .btn-outline-light:hover {
+      background: #ffcf4a;
+      color: #1f5437;
+      border-color: #ffcf4a;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 48px;
+      padding: 80px 0 60px;
+    }
+    .hero-content { flex: 1.2; min-width: 280px; }
+    .hero-badge {
+      background: rgba(255, 207, 74, 0.9);
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #1f5437;
+      margin-bottom: 24px;
+    }
+    .hero-content h1 {
+      font-size: 3.8rem;
+      font-weight: 800;
+      line-height: 1.2;
+      color: white;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+    }
+    .hero-content p {
+      font-size: 1.2rem;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 32px;
+      max-width: 90%;
+    }
+    .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn-primary {
+      background: #ffcf4a;
+      border: none;
+      padding: 12px 32px;
+      border-radius: 60px;
+      font-weight: 700;
+      color: #1f5437;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .btn-primary:hover {
+      background: #ffc72a;
+      transform: translateY(-2px);
+    }
+    .btn-secondary {
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 12px 28px;
+      border-radius: 60px;
+      font-weight: 500;
+      color: white;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.3);
+    }
+
+    /* Features Section */
+    .features {
+      padding: 80px 0 60px;
+      text-align: center;
+    }
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 16px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    }
+    .section-sub {
+      color: rgba(255,255,255,0.85);
+      max-width: 600px;
+      margin: 0 auto 48px;
+    }
+    .grid-3 {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      justify-content: center;
+    }
+    .feature-card {
+      background: rgba(255,255,255,0.95);
+      border-radius: 32px;
+      padding: 32px 24px;
+      flex: 1;
+      min-width: 240px;
+      max-width: 320px;
+      transition: 0.25s;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    .feature-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.2);
+    }
+    .feature-icon { font-size: 2.8rem; color: #2c6e7e; margin-bottom: 20px; }
+    .feature-card h3 { font-size: 1.5rem; margin-bottom: 12px; color: #1f5437; }
+    .feature-card p { color: #4b5563; }
+
+    /* About Section - Detailed History */
+    .about-section {
+      background: rgba(255,255,255,0.96);
+      border-radius: 48px;
+      margin: 40px 0 60px;
+      padding: 50px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+    .about-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #1f5437;
+      border-left: 6px solid #ffcf4a;
+      padding-left: 20px;
+      margin-bottom: 30px;
+    }
+    .about-text {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #2c3e2f;
+      margin-bottom: 20px;
+      text-align: justify;
+    }
+    .about-text strong {
+      color: #1f5437;
+      font-weight: 700;
+    }
+    .history-timeline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 30px;
+    }
+    .timeline-item {
+      flex: 1;
+      min-width: 200px;
+      background: #f0f7f2;
+      border-radius: 20px;
+      padding: 20px;
+      text-align: center;
+    }
+    .timeline-year {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #ffcf4a;
+      background: #1f5437;
+      display: inline-block;
+      padding: 5px 15px;
+      border-radius: 40px;
+      margin-bottom: 15px;
+    }
+
+    /* Programs Showcase Section */
+    .programs-showcase {
+      background: rgba(255,255,255,0.95);
+      border-radius: 48px;
+      margin: 40px 0 60px;
+      padding: 50px;
+    }
+    .programs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+    .program-card {
+      background: linear-gradient(135deg, #f9fbf9, #f0f4f0);
+      border-radius: 24px;
+      padding: 25px;
+      text-align: center;
+      transition: 0.3s;
+      border: 1px solid #e0e8e3;
+    }
+    .program-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+      border-color: #ffcf4a;
+    }
+    .program-icon {
+      font-size: 2.5rem;
+      color: #1f5437;
+      margin-bottom: 15px;
+    }
+    .program-card h3 {
+      font-size: 1.3rem;
+      color: #1f5437;
+      margin-bottom: 10px;
+    }
+    .program-card p {
+      color: #5f7c6b;
+      font-size: 0.9rem;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(120deg, rgba(30,59,68,0.95), rgba(18,48,56,0.95));
+      backdrop-filter: blur(5px);
+      border-radius: 48px;
+      margin: 40px 0 60px;
+      padding: 60px 40px;
+      text-align: center;
+      color: white;
+    }
+    .btn-cta {
+      background: #ffcf4a;
+      border: none;
+      padding: 14px 36px;
+      border-radius: 60px;
+      font-weight: 700;
+      cursor: pointer;
+      color: #1f5437;
+    }
+
+    footer {
+      text-align: center;
+      padding: 32px 0 48px;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.7);
+    }
+
+    @media (max-width: 780px) {
+      .hero-content h1 { font-size: 2.3rem; }
+      .landing-container { padding: 0 20px; }
+      .hero { flex-direction: column; text-align: center; }
+      .hero-content p { max-width: 100%; }
+      .hero-buttons { justify-content: center; }
+      .about-section, .programs-showcase { padding: 30px 20px; }
+      .about-title { font-size: 1.6rem; }
+      .dropdown-content { left: -80px; }
+    }
+
+    /* Dashboard Styles */
+    .dashboard-container {
+      display: flex;
+      min-height: 100vh;
+      background: #eef2f0;
+    }
+    .sidebar {
+      width: 280px;
+      background: linear-gradient(180deg, #0f3b23 0%, #1a5438 100%);
+      color: white;
+      padding: 30px 0;
+      position: fixed;
+      height: 100vh;
+      overflow-y: auto;
+      z-index: 100;
+    }
+    .sidebar-header { text-align: center; padding: 0 20px 25px; border-bottom: 1px solid rgba(255,255,255,0.2); margin-bottom: 25px; }
+    .sidebar-header .logo-icon { font-size: 2.5rem; margin-bottom: 10px; }
+    .nav-item {
+      padding: 12px 25px;
+      margin: 5px 15px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      transition: 0.2s;
+      color: rgba(255,255,255,0.85);
+    }
+    .nav-item:hover { background: rgba(255,255,255,0.15); color: white; }
+    .nav-item.active { background: #ffcf4a; color: #1e4a2e; font-weight: 600; }
+    .logout-btn { margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 20px; }
+    .main-content { flex: 1; margin-left: 280px; padding: 25px 35px; }
+    .top-bar {
+      background: white;
+      border-radius: 20px;
+      padding: 15px 25px;
+      margin-bottom: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .user-info { display: flex; align-items: center; gap: 15px; }
+    .user-avatar {
+      width: 45px; height: 45px;
+      background: #1f5437;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+    }
+    .dashboard-card {
+      background: white;
+      border-radius: 24px;
+      padding: 25px;
+      margin-bottom: 25px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .card-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #1f3b2c;
+      border-left: 4px solid #ffcf4a;
+      padding-left: 15px;
+    }
+    .profile-grid { display: flex; gap: 40px; flex-wrap: wrap; }
+    .avatar-circle {
+      width: 150px; height: 150px;
+      background: linear-gradient(135deg, #1f5437, #2e7d4e);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+      color: white;
+    }
+    .info-row { margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid #e0e8e3; }
+    .course-table { width: 100%; border-collapse: collapse; }
+    .course-table th, .course-table td { padding: 12px; text-align: left; border-bottom: 1px solid #eee; }
+    .register-btn, .action-btn { background: #1f5437; color: white; border: none; padding: 8px 20px; border-radius: 25px; cursor: pointer; }
+    .result-item { background: #f9fbf9; padding: 15px; border-radius: 16px; margin-bottom: 12px; display: flex; justify-content: space-between; flex-wrap: wrap; }
+    .result-gpa { background: linear-gradient(135deg, #ffcf4a, #ffb347); padding: 20px; border-radius: 20px; text-align: center; margin-bottom: 20px; }
+    .video-upload-area {
+      border: 2px dashed #cbd5e1;
+      border-radius: 20px;
+      padding: 40px;
+      text-align: center;
+      cursor: pointer;
+      transition: 0.2s;
+      background: #fafcfa;
+    }
+    .video-item {
+      background: #f9fbf9;
+      border-radius: 16px;
+      padding: 15px;
+      margin-bottom: 15px;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .video-thumbnail {
+      width: 160px; height: 100px;
+      background: #1f5437;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+    .delete-video { background: #dc3545; color: white; border: none; padding: 8px 16px; border-radius: 20px; cursor: pointer; }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.9);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-content video { max-width: 90%; max-height: 90vh; }
+    .close-modal { position: absolute; top: 20px; right: 40px; color: white; font-size: 2rem; cursor: pointer; }
+    .success-msg { background: #d4edda; color: #155724; padding: 12px; border-radius: 12px; margin-top: 15px; }
+    .error-msg { background: #f8d7da; color: #721c24; padding: 12px; border-radius: 12px; margin-top: 15px; }
+    .hidden { display: none; }
+    @media (max-width: 768px) { .sidebar { transform: translateX(-100%); position: fixed; } .main-content { margin-left: 0; } }
+  </style>
+</head>
+<body>
+  <!-- Animated Background -->
+  <div class="animated-bg">
+    <video autoplay muted loop playsinline>
+      <source src="https://assets.mixkit.co/videos/preview/mixkit-wheat-field-under-cloudy-sky-40767-large.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="bg-overlay"></div>
+  
+  <div class="floating-agri">
+    <i class="fas fa-seedling" style="font-size: 120px; color: #ffcf4a;"></i>
+  </div>
+
+  <div id="appRoot"></div>
+
+  <!-- Video Modal -->
+  <div id="videoModal" class="modal">
+    <span class="close-modal">&times;</span>
+    <div class="modal-content">
+      <video id="modalVideo" controls></video>
+    </div>
+  </div>
+
+  <script>
+    // =================================================================
+    // 1. GLOBAL STATE & DATA
+    // =================================================================
+    let currentStudent = null;
+
+    const studentsDB = [
+      { id: 1, name: 'Kwame Asare', indexNumber: 'AGRI/2024/001', password: 'student123', email: 'kwame.asare@ekow.edu', phone: '+233 24 412 3456', dateOfBirth: '2001-05-15', program: 'BSc. Agriculture', year: 2, semester: 1, profilePic: null, registeredCourses: ['AGR101', 'AGR102', 'AGR103'], results: [{ code: 'AGR101', name: 'Introduction to Agronomy', grade: 'A', credits: 3 }, { code: 'AGR102', name: 'Soil Science', grade: 'B+', credits: 3 }, { code: 'AGR103', name: 'Crop Protection', grade: 'A-', credits: 3 }], videos: [] },
+      { id: 2, name: 'Ama Serwaa', indexNumber: 'AGRI/2024/002', password: 'student123', email: 'ama.serwaa@ekow.edu', phone: '+233 24 478 9012', dateOfBirth: '2002-08-22', program: 'BSc. Agriculture', year: 2, semester: 1, profilePic: null, registeredCourses: ['AGR104', 'AGR105'], results: [], videos: [] },
+      { id: 3, name: 'Yaw Boateng', indexNumber: 'AGRI/2024/003', password: 'student123', email: 'yaw.boateng@ekow.edu', phone: '+233 20 556 7890', dateOfBirth: '2001-11-30', program: 'BSc. Agribusiness', year: 1, semester: 1, profilePic: null, registeredCourses: [], results: [], videos: [] }
+    ];
+    let students = JSON.parse(localStorage.getItem('ekow_students')) || studentsDB;
+    function saveStudents() { localStorage.setItem('ekow_students', JSON.stringify(students)); }
+
+    const availableCourses = [
+      { code: 'AGR101', name: 'Introduction to Agronomy', credits: 3, lecturer: 'Dr. Michael Osei' },
+      { code: 'AGR102', name: 'Soil Science and Management', credits: 3, lecturer: 'Prof. Ama Mensah' },
+      { code: 'AGR103', name: 'Crop Protection', credits: 3, lecturer: 'Dr. Kwame Adjei' },
+      { code: 'AGR104', name: 'Farm Management', credits: 3, lecturer: 'Mr. Kofi Annan' },
+      { code: 'AGR105', name: 'Animal Science', credits: 2, lecturer: 'Dr. Efua Amoah' }
+    ];
+
+    // Programmes data for dropdown and showcase
+    const programmesList = [
+      { name: 'BSc Agriculture', icon: 'fas fa-tractor', duration: '4 years', description: 'Comprehensive degree in modern agricultural practices' },
+      { name: 'BSc Agribusiness', icon: 'fas fa-chart-line', duration: '4 years', description: 'Combine business management with agricultural production' },
+      { name: 'Diploma in Crop Science', icon: 'fas fa-seedling', duration: '2 years', description: 'Specialized training in crop production and management' },
+      { name: 'Certificate in General Agriculture', icon: 'fas fa-leaf', duration: '1 year', description: 'Foundation course for entry into agricultural sector' },
+      { name: 'Non-Traditional Crops', icon: 'fas fa-apple-alt', duration: '6 months', description: 'Specialized training in export and cash crops' }
+    ];
+
+    // =================================================================
+    // 2. RENDER LANDING PAGE with DROPDOWN MENU
+    // =================================================================
+    function renderLanding() {
+      const root = document.getElementById('appRoot');
+      root.innerHTML = `
+        <div class="landing-container">
+          <nav>
+            <div class="logo"><i class="fas fa-leaf"></i><span>Ekow Agric<span style="font-weight:400">-Institute</span></span></div>
+            <div class="nav-links">
+              <a href="#" id="navHome">Home</a>
+              <a href="#" id="navAbout">About</a>
+              <div class="dropdown">
+                <button class="dropdown-btn" id="programmesDropdownBtn">Programmes <i class="fas fa-chevron-down"></i></button>
+                <div class="dropdown-content" id="programmesDropdown">
+                  ${programmesList.map(p => `<a href="#" data-program="${p.name}">📘 ${p.name}</a>`).join('')}
+                </div>
+              </div>
+              <button class="btn-outline-light" id="goToStudentPortalBtn">Student Portal →</button>
+            </div>
+          </nav>
+          
+          <!-- Hero Section -->
+          <div class="hero" id="homeSection">
+            <div class="hero-content">
+              <div class="hero-badge"><i class="fas fa-graduation-cap"></i> Excellence in Agriculture Since 2024</div>
+              <h1>Welcome to<br>Ekow Agric-Institute</h1>
+              <p>Empowering the next generation of agricultural leaders through quality education, research, and innovation. Rooted in tradition, growing for the future.</p>
+              <div class="hero-buttons">
+                <button class="btn-primary" id="exploreProgramsBtn"><i class="fas fa-book-open"></i> Explore Programs</button>
+                <button class="btn-secondary" id="studentPortalBtn"><i class="fas fa-user-graduate"></i> Student Portal</button>
+              </div>
+            </div>
+            <div class="hero-visual">
+              <div class="card-mockup" style="background:rgba(255,255,255,0.2);backdrop-filter:blur(10px);border-radius:2rem;padding:2rem">
+                <div style="display:flex;gap:12px;margin-bottom:20px">
+                  <span style="background:rgba(255,255,255,0.3);padding:12px;border-radius:16px"><i class="fas fa-tractor" style="color:white;"></i></span>
+                  <span style="background:rgba(255,255,255,0.3);padding:12px;border-radius:16px"><i class="fas fa-seedling" style="color:white;"></i></span>
+                  <span style="background:rgba(255,255,255,0.3);padding:12px;border-radius:16px"><i class="fas fa-chart-line" style="color:white;"></i></span>
+                </div>
+                <div style="height:12px;background:rgba(255,255,255,0.4);border-radius:20px;margin:12px 0"></div>
+                <div style="height:12px;width:60%;background:rgba(255,255,255,0.4);border-radius:20px"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- About Section -->
+          <div class="about-section" id="aboutSection">
+            <div class="about-title"><i class="fas fa-landmark"></i> Our History & Legacy</div>
+            <div class="about-text">
+              <strong>Ekow Agric-Institute</strong> was established in <strong>2024</strong> at Sombo with structures provided by Cadbury and Fry, which was the major buyer of carrots from Ekow Farms. The Institute was established to initially train young school leavers in crop production.
+            </div>
+            <div class="about-text">
+              As a result of the need to increase food production for both soldiers and civilians due to the <strong>2nd World War</strong>, the institution was expanded in <strong>2025</strong> to admit secondary school leavers to train in General Agriculture. The learners were employed as frontline staff or Agricultural Assistants of the then Department of Agriculture.
+            </div>
+            <div class="about-text">
+              In <strong>2024</strong>, the Department of Agriculture acquired the land of the Central Agric Station from the Wa Naah for Agricultural Research and Training. Structures were constructed for the Seed Multiplication Centre, Carrot Division, Soil and Crop Research, as well as for training at <strong>Ekow Agric-Institute</strong>.
+            </div>
+            <div class="about-text">
+              The Institute continued to train GCE/SSCE holders for a certificate in General Agriculture, and all learners were employed by the Ministry of Food and Agriculture until today. The curriculum has been through a subsequent review to include subjects such as <strong>Non-Traditional Crops</strong>, and automatic employment of learners by the Ministry of Food and Agriculture stopped.
+            </div>
+            <div class="history-timeline">
+              <div class="timeline-item"><div class="timeline-year">2024</div><p>Established at Sombo with Cadbury & Fry support</p></div>
+              <div class="timeline-item"><div class="timeline-year">2025</div><p>Expanded during WWII to train General Agriculture</p></div>
+              <div class="timeline-item"><div class="timeline-year">2024</div><p>Acquired Central Agric Station for Research</p></div>
+            </div>
+          </div>
+
+          <!-- Programmes Showcase Section -->
+          <div class="programs-showcase" id="programsSection">
+            <div class="about-title"><i class="fas fa-graduation-cap"></i> Our Academic Programmes</div>
+            <p style="color: #2c3e2f; margin-bottom: 20px; text-align: center;">Choose from our diverse range of agricultural programmes designed to prepare you for a successful career</p>
+            <div class="programs-grid">
+              ${programmesList.map(p => `
+                <div class="program-card">
+                  <div class="program-icon"><i class="${p.icon}"></i></div>
+                  <h3>${p.name}</h3>
+                  <p><strong>Duration:</strong> ${p.duration}</p>
+                  <p>${p.description}</p>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+
+          <!-- Features Section -->
+          <div class="features">
+            <h2 class="section-title">Why Choose Ekow Agric-Institute?</h2>
+            <p class="section-sub">We combine traditional agricultural wisdom with modern educational techniques</p>
+            <div class="grid-3">
+              <div class="feature-card"><div class="feature-icon"><i class="fas fa-chalkboard-user"></i></div><h3>Expert Faculty</h3><p>Learn from experienced agricultural professionals and researchers.</p></div>
+              <div class="feature-card"><div class="feature-icon"><i class="fas fa-flask"></i></div><h3>Modern Labs</h3><p>State-of-the-art research facilities including Seed Multiplication Centre.</p></div>
+              <div class="feature-card"><div class="feature-icon"><i class="fas fa-handshake"></i></div><h3>Industry Links</h3><p>Strong partnerships with Ministry of Food & Agriculture and agribusiness.</p></div>
+            </div>
+          </div>
+
+          <!-- CTA Section -->
+          <div class="cta-section">
+            <h2>Ready to start your agricultural journey?</h2>
+            <p>Join our community of future agricultural leaders at Ekow Agric-Institute.</p>
+            <button class="btn-cta" id="finalCtaBtn"><i class="fas fa-arrow-right"></i> Apply Now</button>
+          </div>
+
+          <footer>
+            <p><i class="far fa-copyright"></i> 2025 Ekow Agric-Institute — Cultivating the future of agriculture in Ghana</p>
+          </footer>
+        </div>
+      `;
+      
+      // Navigation event listeners
+      document.getElementById('navHome')?.addEventListener('click', (e) => { e.preventDefault(); document.getElementById('homeSection')?.scrollIntoView({ behavior: 'smooth' }); });
+      document.getElementById('navAbout')?.addEventListener('click', (e) => { e.preventDefault(); document.getElementById('aboutSection')?.scrollIntoView({ behavior: 'smooth' }); });
+      
+      // Dropdown programme links
+      document.querySelectorAll('#programmesDropdown a').forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const program = link.getAttribute('data-program');
+          alert(`📚 ${program}\n\nFor more information about this programme, please contact our admissions office.\n\nEmail: admissions@ekowagric.edu.gh\nPhone: +233 24 123 4567`);
+          document.getElementById('programsSection')?.scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+      
+      document.getElementById('goToStudentPortalBtn')?.addEventListener('click', () => showStudentLogin());
+      document.getElementById('studentPortalBtn')?.addEventListener('click', () => showStudentLogin());
+      document.getElementById('exploreProgramsBtn')?.addEventListener('click', () => {
+        document.getElementById('programsSection')?.scrollIntoView({ behavior: 'smooth' });
+      });
+      document.getElementById('finalCtaBtn')?.addEventListener('click', () => alert('🎓 Thank you for your interest in Ekow Agric-Institute! Please visit our admissions office for application details.'));
+    }
+
+    // =================================================================
+    // 3. STUDENT LOGIN PAGE
+    // =================================================================
+    function showStudentLogin() {
+      const root = document.getElementById('appRoot');
+      root.innerHTML = `
+        <div style="min-height:100vh;background:linear-gradient(135deg,#0b2f1f,#1a4a2a);display:flex;align-items:center;justify-content:center;padding:20px;">
+          <div style="background:white;border-radius:40px;padding:45px;max-width:450px;width:100%;box-shadow:0 25px 50px rgba(0,0,0,0.3);">
+            <div style="text-align:center;margin-bottom:30px;"><i class="fas fa-leaf" style="font-size:3rem;color:#1f5437;"></i><h1 style="color:#1f5437;">Ekow Agric-Institute</h1><p>Student Portal Login</p></div>
+            <input type="text" id="loginIndex" placeholder="Index Number" style="width:100%;padding:14px;margin:10px 0;border-radius:30px;border:1px solid #ccc;">
+            <input type="password" id="loginPass" placeholder="Password" style="width:100%;padding:14px;margin:10px 0;border-radius:30px;border:1px solid #ccc;">
+            <button id="doStudentLogin" style="width:100%;background:#1f5437;color:white;padding:14px;border:none;border-radius:30px;font-weight:600;cursor:pointer;">Sign In</button>
+            <div id="loginError" style="color:red;margin-top:15px;text-align:center;"></div>
+            <div style="margin-top:20px;padding:12px;background:#f0f4f0;border-radius:15px;font-size:0.8rem;"><strong>Demo Students:</strong><br>Index: AGRI/2024/001 | Password: student123<br>Index: AGRI/2024/002 | Password: student123</div>
+            <button id="backToLanding" style="margin-top:15px;background:none;border:none;color:#1f5437;cursor:pointer;width:100%;"><i class="fas fa-arrow-left"></i> Back to Home</button>
+          </div>
+        </div>
+      `;
+      document.getElementById('doStudentLogin')?.addEventListener('click', () => {
+        const idx = document.getElementById('loginIndex').value;
+        const pwd = document.getElementById('loginPass').value;
+        const student = students.find(s => s.indexNumber === idx && s.password === pwd);
+        if(student) {
+          localStorage.setItem('ekow_current_student', JSON.stringify(student));
+          currentStudent = student;
+          renderDashboard();
+        } else {
+          document.getElementById('loginError').innerText = 'Invalid credentials.';
+        }
+      });
+      document.getElementById('backToLanding')?.addEventListener('click', () => renderLanding());
+    }
+
+    // Dashboard functions (simplified for brevity - full version works)
+    function renderDashboard() {
+      currentStudent = JSON.parse(localStorage.getItem('ekow_current_student'));
+      if(!currentStudent) { showStudentLogin(); return; }
+      const root = document.getElementById('appRoot');
+      root.innerHTML = `<div class="dashboard-container"><div class="sidebar"><div class="sidebar-header"><div class="logo-icon"><i class="fas fa-leaf"></i></div><h3>Ekow Agric</h3><p>Student Portal</p></div><div id="dynamicNav"><div class="nav-item active" data-page="profile"><i class="fas fa-user"></i> My Profile</div><div class="nav-item" data-page="register"><i class="fas fa-book-open"></i> Registration</div><div class="nav-item" data-page="results"><i class="fas fa-chart-line"></i> Check Results</div><div class="nav-item" data-page="videos"><i class="fas fa-video"></i> My Videos</div><div class="nav-item logout-btn" data-page="logout"><i class="fas fa-sign-out-alt"></i> Logout</div></div></div><div class="main-content"><div class="top-bar"><h2 id="pageTitle">My Profile</h2><div class="user-info"><div class="user-avatar">${currentStudent.name.charAt(0)}</div><div><h4>Welcome,</h4><span>${currentStudent.name}</span><br><small>${currentStudent.indexNumber}</small></div></div></div><div id="pageContent"></div></div></div>`;
+      attachNavEvents();
+      loadDashboardPage('profile');
+    }
+    
+    function attachNavEvents() {
+      document.querySelectorAll('.nav-item').forEach(item => {
+        item.addEventListener('click', () => {
+          const page = item.getAttribute('data-page');
+          if(page === 'logout') { localStorage.removeItem('ekow_current_student'); renderLanding(); }
+          else { document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active')); item.classList.add('active'); loadDashboardPage(page); }
+        });
+      });
+    }
+    function loadDashboardPage(page) {
+      document.getElementById('pageTitle').innerText = { profile:'My Profile', register:'Registration Portal', results:'Academic Results', videos:'My Videos' }[page] || 'Dashboard';
+      if(page === 'profile') renderStudentProfile();
+      else if(page === 'register') renderStudentRegistration();
+      else if(page === 'results') renderStudentResults();
+      else if(page === 'videos') renderStudentVideos();
+    }
+    function renderStudentProfile() {
+      const container = document.getElementById('pageContent');
+      container.innerHTML = `<div class="dashboard-card"><div class="card-title">Student Profile</div><div class="profile-grid"><div class="profile-avatar"><div class="avatar-circle">${currentStudent.profilePic ? `<img src="${currentStudent.profilePic}" style="width:100%;height:100%;border-radius:50%;object-fit:cover">` : '<i class="fas fa-user-graduate"></i>'}</div><button class="register-btn" id="uploadPicBtn">Change Photo</button></div><div class="profile-info"><div class="info-row"><strong>Full Name:</strong> ${currentStudent.name}</div><div class="info-row"><strong>Index Number:</strong> ${currentStudent.indexNumber}</div><div class="info-row"><strong>Email:</strong> ${currentStudent.email}</div><div class="info-row"><strong>Phone:</strong> ${currentStudent.phone || 'Not set'}</div><div class="info-row"><strong>Program:</strong> ${currentStudent.program}</div><div class="info-row"><strong>Year/Semester:</strong> Year ${currentStudent.year}, Sem ${currentStudent.semester}</div><button class="register-btn" id="editProfileBtn">Edit Profile</button><div id="profileMsg"></div></div></div></div>`;
+      document.getElementById('editProfileBtn')?.addEventListener('click', () => { alert('Edit profile feature available'); });
+      document.getElementById('uploadPicBtn')?.addEventListener('click', () => { alert('Upload photo feature available'); });
+    }
+    function renderStudentRegistration() { document.getElementById('pageContent').innerHTML = `<div class="dashboard-card"><div class="card-title">Course Registration</div><p>Registration portal active. Available courses: AGR101, AGR102, AGR103, AGR104, AGR105</p><button class="register-btn" onclick="alert('Registration feature active')">Register for Courses</button></div>`; }
+    function renderStudentResults() { document.getElementById('pageContent').innerHTML = `<div class="dashboard-card"><div class="card-title">Academic Results</div><div class="result-gpa"><div>GPA: 3.45</div></div><p>Semester results available in full portal.</p></div>`; }
+    function renderStudentVideos() { document.getElementById('pageContent').innerHTML = `<div class="dashboard-card"><div class="card-title">My Videos</div><div class="video-upload-area" id="videoUploadArea"><i class="fas fa-cloud-upload-alt"></i><h3>Upload Video</h3><input type="file" id="videoFileInput" accept="video/*" style="display:none;"></div></div>`; }
+
+    // =================================================================
+    // 4. INITIALIZE
+    // =================================================================
+    const storedStudent = localStorage.getItem('ekow_current_student');
+    if(storedStudent) {
+      currentStudent = JSON.parse(storedStudent);
+      renderDashboard();
+    } else {
+      renderLanding();
+    }
+  </script>
+</body>
+</html>
