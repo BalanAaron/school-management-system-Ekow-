@@ -1,0 +1,1340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Ekow Agric-Institute | Excellence in Agriculture Since 1944</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --forest:      #0B2D1A;
+      --forest-mid:  #154D2E;
+      --forest-lt:   #1E6B40;
+      --gold:        #C9A84C;
+      --gold-br:     #E0BC5E;
+      --gold-pale:   #F5EDD4;
+      --cream:       #FAF7F2;
+      --cream2:      #F0EAE0;
+      --sage:        #7BA98A;
+      --text:        #0B1E13;
+      --text-mid:    #2C4836;
+      --text-soft:   #5A7865;
+      --text-muted:  #8CA898;
+      --border:      rgba(11,45,26,0.11);
+      --shadow-sm:   0 2px 12px rgba(11,45,26,0.07);
+      --shadow-md:   0 8px 32px rgba(11,45,26,0.11);
+      --shadow-lg:   0 24px 64px rgba(11,45,26,0.17);
+      --shadow-xl:   0 48px 120px rgba(11,45,26,0.22);
+      --r-sm: 10px; --r-md: 18px; --r-lg: 28px; --r-xl: 40px;
+    }
+    *,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Outfit',sans-serif; background:var(--cream); color:var(--text); min-height:100vh; overflow-x:hidden; -webkit-font-smoothing:antialiased; }
+
+    /* suppress legacy bg elements */
+    .animated-bg,.bg-overlay,.floating-agri { display:none!important; }
+
+    /* ── LANDING PAGE ─────────────────────────────────────── */
+    .landing-page {
+      background:
+        linear-gradient(160deg,rgba(11,45,26,.55) 0%,rgba(21,77,46,.38) 45%,rgba(11,45,26,.60) 100%),
+        url('WhatsApp%20Image%202026-04-08%20at%205.05.48%20PM.jpeg') center/cover no-repeat fixed;
+    }
+    .lc { max-width:1280px; margin:0 auto; padding:0 44px; position:relative; z-index:1; }
+
+    /* NAV */
+    nav { display:flex; justify-content:space-between; align-items:center; padding:28px 0 24px; gap:20px; flex-wrap:wrap; }
+    .logo { display:flex; align-items:center; gap:13px; text-decoration:none; }
+    .logo-icon { width:44px; height:44px; background:linear-gradient(135deg,var(--gold),var(--gold-br)); border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.2rem; color:var(--forest); box-shadow:0 4px 16px rgba(201,168,76,.4); flex-shrink:0; }
+    .logo-text { font-family:'Cormorant Garamond',serif; font-size:1.85rem; font-weight:700; color:#fff; letter-spacing:-.02em; line-height:1; }
+    .logo-text span { font-weight:400; opacity:.65; }
+    .nav-links { display:flex; gap:6px; align-items:center; flex-wrap:wrap; }
+    .nav-links a { text-decoration:none; font-weight:500; font-size:.89rem; color:rgba(255,255,255,.82); padding:8px 15px; border-radius:50px; transition:.2s; }
+    .nav-links a:hover { color:#fff; background:rgba(255,255,255,.12); }
+    .dropdown { position:relative; }
+    .dropdown-btn { background:transparent; border:none; font-weight:500; font-size:.89rem; color:rgba(255,255,255,.82); cursor:pointer; font-family:'Outfit',sans-serif; padding:8px 15px; border-radius:50px; transition:.2s; display:flex; align-items:center; gap:6px; }
+    .dropdown-btn:hover { color:#fff; background:rgba(255,255,255,.12); }
+    .dropdown-btn i { font-size:.68rem; transition:transform .2s; }
+    .dropdown:hover .dropdown-btn i { transform:rotate(180deg); }
+    .dropdown-content { display:none; position:absolute; top:calc(100% + 8px); left:0; min-width:255px; border-radius:var(--r-md); box-shadow:var(--shadow-lg),0 0 0 1px rgba(11,45,26,.06); z-index:200; overflow:hidden; background:#fff; }
+    .dropdown-content a { color:var(--text-mid)!important; padding:12px 20px; display:flex; align-items:center; gap:9px; font-size:.87rem; border-bottom:1px solid var(--border); transition:.18s; background:transparent!important; border-radius:0!important; }
+    .dropdown-content a:last-child { border-bottom:none; }
+    .dropdown-content a:hover { background:var(--cream)!important; color:var(--forest)!important; padding-left:26px; }
+    .dropdown:hover .dropdown-content { display:block; }
+    .btn-portal { background:linear-gradient(135deg,var(--gold),var(--gold-br)); border:none; padding:10px 24px; border-radius:50px; font-weight:700; font-size:.87rem; color:var(--forest); cursor:pointer; transition:.25s; font-family:'Outfit',sans-serif; box-shadow:0 4px 16px rgba(201,168,76,.35); letter-spacing:.02em; }
+    .btn-portal:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(201,168,76,.5); }
+
+    /* HERO */
+    .hero { display:grid; grid-template-columns:1.15fr 1fr; gap:64px; align-items:center; padding:80px 0 88px; }
+    .hero-eyebrow { display:inline-flex; align-items:center; gap:8px; background:rgba(201,168,76,.18); border:1px solid rgba(201,168,76,.4); padding:6px 16px; border-radius:50px; font-size:.76rem; font-weight:700; color:var(--gold-br); letter-spacing:.08em; text-transform:uppercase; margin-bottom:24px; }
+    .hero h1 { font-family:'Cormorant Garamond',serif; font-size:4.8rem; font-weight:700; line-height:1.07; color:#fff; margin-bottom:24px; letter-spacing:-.02em; }
+    .hero h1 em { font-style:italic; color:var(--gold-br); }
+    .hero > div:first-child p { font-size:1.08rem; color:rgba(255,255,255,.75); line-height:1.75; margin-bottom:40px; max-width:480px; font-weight:300; }
+    .hero-btns { display:flex; gap:14px; flex-wrap:wrap; }
+    .btn-primary { background:linear-gradient(135deg,var(--gold),var(--gold-br)); border:none; padding:14px 32px; border-radius:50px; font-weight:700; font-size:.94rem; color:var(--forest); cursor:pointer; transition:.25s; font-family:'Outfit',sans-serif; box-shadow:0 8px 24px rgba(201,168,76,.4); display:inline-flex; align-items:center; gap:8px; }
+    .btn-primary:hover { transform:translateY(-3px); box-shadow:0 14px 32px rgba(201,168,76,.55); }
+    .btn-ghost { background:rgba(255,255,255,.1); backdrop-filter:blur(12px); border:1px solid rgba(255,255,255,.25); padding:14px 28px; border-radius:50px; font-weight:500; font-size:.94rem; color:#fff; cursor:pointer; transition:.25s; font-family:'Outfit',sans-serif; display:inline-flex; align-items:center; gap:8px; }
+    .btn-ghost:hover { background:rgba(255,255,255,.2); transform:translateY(-2px); }
+    /* hero visual card */
+    .hero-visual { position:relative; }
+    .hero-card { background:rgba(255,255,255,.1); backdrop-filter:blur(20px); border:1px solid rgba(255,255,255,.2); border-radius:var(--r-xl); padding:24px; overflow:visible; }
+    .hero-card-img { width:100%; height:210px; border-radius:var(--r-lg); object-fit:cover; display:block; margin-bottom:20px; }
+    .hero-stats { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+    .hero-stat { background:rgba(255,255,255,.12); border-radius:12px; padding:14px 8px; text-align:center; }
+    .hero-stat-num { font-family:'Cormorant Garamond',serif; font-size:1.8rem; font-weight:700; color:var(--gold-br); line-height:1; display:block; }
+    .hero-stat-label { font-size:.7rem; color:rgba(255,255,255,.6); font-weight:500; letter-spacing:.03em; margin-top:4px; display:block; }
+    .hero-badge-float { position:absolute; top:-18px; right:16px; background:#fff; border-radius:var(--r-md); padding:12px 18px; box-shadow:var(--shadow-lg); display:flex; align-items:center; gap:10px; font-size:.83rem; font-weight:600; color:var(--forest); white-space:nowrap; animation:floatBadge 4s ease-in-out infinite; }
+    .hero-badge-float i { color:var(--gold); }
+    @keyframes floatBadge { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+
+    /* MARQUEE */
+    .marquee-bar { background:linear-gradient(90deg,var(--forest-mid),var(--forest-lt),var(--forest-mid)); padding:14px 0; overflow:hidden; border-top:1px solid rgba(201,168,76,.18); border-bottom:1px solid rgba(201,168,76,.18); }
+    .marquee-track { display:flex; animation:marqueeScroll 32s linear infinite; width:max-content; }
+    .marquee-item { display:inline-flex; align-items:center; gap:10px; padding:0 44px; font-size:.78rem; font-weight:600; color:rgba(255,255,255,.7); letter-spacing:.07em; text-transform:uppercase; white-space:nowrap; }
+    .marquee-item i { color:var(--gold); }
+    @keyframes marqueeScroll { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+    /* ABOUT */
+    .about-wrapper { background:var(--cream); padding:100px 44px; }
+    .about-inner { max-width:1280px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
+    .about-img-stack { position:relative; }
+    .about-img-main { width:100%; height:540px; object-fit:cover; border-radius:var(--r-xl); display:block; box-shadow:var(--shadow-xl); filter:brightness(1.04) saturate(1.08); }
+    .about-img-badge { position:absolute; bottom:28px; left:-28px; background:#fff; border-radius:var(--r-lg); padding:20px 24px; box-shadow:var(--shadow-lg); min-width:190px; }
+    .about-badge-num { font-family:'Cormorant Garamond',serif; font-size:3rem; font-weight:700; color:var(--forest); line-height:1; }
+    .about-badge-num span { color:var(--gold); }
+    .about-img-badge p { font-size:.78rem; color:var(--text-soft); font-weight:500; margin-top:5px; }
+    .about-img-tag { position:absolute; top:28px; right:-20px; background:linear-gradient(135deg,var(--gold),var(--gold-br)); color:var(--forest); font-weight:700; font-size:.77rem; padding:10px 18px; border-radius:50px; box-shadow:0 8px 24px rgba(201,168,76,.4); letter-spacing:.05em; text-transform:uppercase; }
+    .section-eyebrow { font-size:.73rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--gold); margin-bottom:14px; display:flex; align-items:center; gap:10px; }
+    .section-eyebrow::after { content:''; height:1px; width:36px; background:var(--gold); opacity:.5; }
+    .section-title { font-family:'Cormorant Garamond',serif; font-size:3rem; font-weight:700; color:var(--forest); line-height:1.14; letter-spacing:-.02em; margin-bottom:22px; }
+    .section-title em { font-style:italic; color:var(--forest-lt); }
+    .about-text { font-size:.96rem; line-height:1.8; color:var(--text-soft); margin-bottom:18px; }
+    .about-text strong { color:var(--text-mid); font-weight:600; }
+    .timeline-strip { display:flex; border-radius:var(--r-lg); overflow:hidden; border:1px solid var(--border); margin-top:36px; }
+    .tl-item { flex:1; padding:18px 14px; text-align:center; background:#fff; border-right:1px solid var(--border); transition:.2s; }
+    .tl-item:last-child { border-right:none; }
+    .tl-item:hover { background:var(--cream2); }
+    .tl-year { font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:700; color:var(--forest); display:block; margin-bottom:6px; }
+    .tl-year span { color:var(--gold); }
+    .tl-desc { font-size:.73rem; color:var(--text-soft); line-height:1.5; }
+
+    /* PROGRAMS */
+    .programs-wrapper { background:var(--forest); padding:100px 44px; position:relative; overflow:hidden; }
+    .programs-wrapper::before { content:''; position:absolute; top:0; right:0; width:600px; height:600px; background:radial-gradient(circle,rgba(201,168,76,.07) 0%,transparent 70%); pointer-events:none; }
+    .programs-inner { max-width:1280px; margin:0 auto; position:relative; z-index:1; }
+    .programs-head { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:48px; flex-wrap:wrap; gap:20px; }
+    .programs-head .section-title { color:#fff; margin-bottom:0; }
+    .programs-head .section-eyebrow { color:var(--gold-br); }
+    .programs-head .section-eyebrow::after { background:var(--gold-br); }
+    .programs-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:20px; }
+    .prog-card { background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); border-radius:var(--r-lg); overflow:hidden; transition:.3s; cursor:pointer; }
+    .prog-card:hover { transform:translateY(-7px); background:rgba(255,255,255,.09); border-color:rgba(201,168,76,.4); box-shadow:0 24px 64px rgba(0,0,0,.3); }
+    .prog-card-img { width:100%; height:175px; object-fit:cover; display:block; filter:brightness(1); transition:.3s; }
+    .prog-card:hover .prog-card-img { filter:brightness(1.07) saturate(1.1); }
+    .prog-card-body { padding:20px 22px 24px; }
+    .prog-icon { width:38px; height:38px; background:linear-gradient(135deg,var(--gold),var(--gold-br)); border-radius:9px; display:flex; align-items:center; justify-content:center; font-size:.95rem; color:var(--forest); margin-bottom:13px; }
+    .prog-card-body h3 { font-family:'Cormorant Garamond',serif; font-size:1.18rem; font-weight:600; color:#fff; margin-bottom:6px; line-height:1.3; }
+    .prog-duration { display:inline-block; font-size:.7rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--gold-br); margin-bottom:9px; }
+    .prog-card-body p { font-size:.81rem; color:rgba(255,255,255,.5); line-height:1.6; }
+
+    /* FEATURES */
+    .features-wrapper { background:var(--cream); padding:100px 44px; }
+    .features-inner { max-width:1280px; margin:0 auto; }
+    .features-head { text-align:center; margin-bottom:60px; }
+    .features-head .section-eyebrow { justify-content:center; }
+    .features-head .section-eyebrow::before { content:''; height:1px; width:36px; background:var(--gold); opacity:.5; }
+    .features-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
+    .feat-card { background:#fff; border-radius:var(--r-xl); overflow:hidden; box-shadow:var(--shadow-sm); transition:.3s; border:1px solid var(--border); }
+    .feat-card:hover { transform:translateY(-8px); box-shadow:var(--shadow-lg); }
+    .feat-card-img { width:100%; height:240px; object-fit:cover; display:block; }
+    .feat-card-body { padding:28px; }
+    .feat-icon { width:50px; height:50px; background:var(--gold-pale); border-radius:var(--r-md); display:flex; align-items:center; justify-content:center; font-size:1.25rem; color:var(--forest); margin-bottom:18px; }
+    .feat-card-body h3 { font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-weight:700; color:var(--forest); margin-bottom:10px; }
+    .feat-card-body p { font-size:.87rem; color:var(--text-soft); line-height:1.72; }
+
+    /* CTA */
+    .cta-wrapper { background:linear-gradient(135deg,rgba(11,45,26,.65) 0%,rgba(21,77,46,.52) 100%),url('WhatsApp%20Image%202026-04-08%20at%205.05.47%20PM%20(1).jpeg') center/cover no-repeat; padding:100px 44px; text-align:center; }
+    .cta-inner { max-width:680px; margin:0 auto; }
+    .cta-inner .section-eyebrow { justify-content:center; color:var(--gold-br); }
+    .cta-inner .section-eyebrow::before { content:''; height:1px; width:36px; background:var(--gold-br); opacity:.5; }
+    .cta-inner .section-eyebrow::after { background:var(--gold-br); }
+    .cta-inner h2 { font-family:'Cormorant Garamond',serif; font-size:3.2rem; font-weight:700; color:#fff; line-height:1.1; letter-spacing:-.02em; margin-bottom:18px; }
+    .cta-inner p { font-size:1rem; color:rgba(255,255,255,.7); margin-bottom:36px; font-weight:300; line-height:1.75; }
+    .btn-cta { background:linear-gradient(135deg,var(--gold),var(--gold-br)); border:none; padding:16px 40px; border-radius:50px; font-weight:700; font-size:1rem; color:var(--forest); cursor:pointer; transition:.25s; font-family:'Outfit',sans-serif; box-shadow:0 8px 32px rgba(201,168,76,.4); display:inline-flex; align-items:center; gap:10px; letter-spacing:.02em; }
+    .btn-cta:hover { transform:translateY(-3px); box-shadow:0 16px 48px rgba(201,168,76,.55); }
+
+    /* FOOTER */
+    .site-footer { background:var(--forest); padding:40px 44px; text-align:center; border-top:1px solid rgba(201,168,76,.15); }
+    .site-footer p { color:rgba(255,255,255,.42); font-size:.84rem; }
+    .site-footer i { color:var(--gold); }
+
+    /* ── LOGIN PAGE ───────────────────────────────────────── */
+    .login-page { min-height:100vh; display:grid; grid-template-columns:1fr 1fr; }
+    .login-left { background:linear-gradient(180deg,rgba(11,45,26,.45) 0%,rgba(11,45,26,.80) 100%),url('WhatsApp%20Image%202026-04-08%20at%205.05.50%20PM%20(1).jpeg') center/cover no-repeat; display:flex; flex-direction:column; justify-content:space-between; padding:52px; }
+    .login-left-logo { display:flex; align-items:center; gap:14px; }
+    .login-left-logo .logo-icon { width:48px; height:48px; border-radius:12px; }
+    .login-logo-name { font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-weight:700; color:#fff; line-height:1.1; }
+    .login-logo-sub { font-size:.77rem; color:rgba(255,255,255,.5); }
+    .login-quote blockquote { font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:600; font-style:italic; line-height:1.3; margin-bottom:16px; color:rgba(255,255,255,.9); }
+    .login-quote cite { font-size:.8rem; color:var(--gold-br); font-style:normal; font-weight:600; letter-spacing:.06em; text-transform:uppercase; }
+    .login-right { background:var(--cream); display:flex; align-items:center; justify-content:center; padding:60px 52px; }
+    .login-box { width:100%; max-width:400px; }
+    .login-box h1 { font-family:'Cormorant Garamond',serif; font-size:2.4rem; font-weight:700; color:var(--forest); margin-bottom:8px; letter-spacing:-.02em; }
+    .login-box > p { color:var(--text-soft); font-size:.9rem; margin-bottom:36px; }
+    .form-label { display:block; font-size:.75rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase; color:var(--text-mid); margin-bottom:8px; }
+    .form-input { width:100%; padding:14px 18px; border-radius:var(--r-md); border:1.5px solid var(--border); font-family:'Outfit',sans-serif; font-size:.94rem; color:var(--text); background:#fff; outline:none; transition:.2s; }
+    .form-input:focus { border-color:var(--forest-lt); box-shadow:0 0 0 4px rgba(30,107,64,.09); }
+    .form-field { margin-bottom:16px; }
+    .input-wrap { position:relative; }
+    .eye-btn { position:absolute; right:15px; top:50%; transform:translateY(-50%); background:none; border:none; cursor:pointer; color:var(--text-muted); font-size:.98rem; padding:4px; transition:color .2s; line-height:1; }
+    .eye-btn:hover { color:var(--forest); }
+    .btn-login { width:100%; background:linear-gradient(135deg,var(--forest),var(--forest-lt)); color:#fff; padding:15px; border:none; border-radius:var(--r-md); font-weight:700; font-size:1rem; cursor:pointer; transition:.25s; font-family:'Outfit',sans-serif; margin-top:8px; box-shadow:0 8px 24px rgba(11,45,26,.24); display:flex; align-items:center; justify-content:center; gap:10px; letter-spacing:.02em; }
+    .btn-login:hover { box-shadow:0 12px 32px rgba(11,45,26,.34); transform:translateY(-1px); }
+    .btn-login:disabled { opacity:.65; cursor:not-allowed; transform:none; }
+    .login-error { color:#C0392B; font-size:.84rem; min-height:20px; margin-top:10px; text-align:center; }
+    .demo-box { margin-top:22px; padding:15px 18px; background:#fff; border:1px solid var(--border); border-radius:var(--r-md); font-size:.79rem; color:var(--text-soft); line-height:1.85; }
+    .demo-box strong { color:var(--forest); }
+    .demo-box code { background:var(--cream2); padding:1px 6px; border-radius:4px; font-family:monospace; font-size:.8rem; color:var(--forest); }
+    .btn-back { background:none; border:none; color:var(--text-soft); cursor:pointer; width:100%; font-size:.87rem; padding:10px; margin-top:12px; font-family:'Outfit',sans-serif; display:flex; align-items:center; justify-content:center; gap:8px; transition:.2s; border-radius:var(--r-sm); }
+    .btn-back:hover { color:var(--forest); background:var(--cream2); }
+
+    /* ── DASHBOARD ────────────────────────────────────────── */
+    .dash-root { display:flex; min-height:100vh; background:#EEE9E2; }
+    .sidebar { width:258px; background:var(--forest); color:#fff; padding:0; position:fixed; height:100vh; overflow-y:auto; z-index:100; transition:transform .3s cubic-bezier(.4,0,.2,1); display:flex; flex-direction:column; }
+    .sidebar::-webkit-scrollbar { width:0; }
+    .sb-logo { padding:28px 22px 24px; border-bottom:1px solid rgba(255,255,255,.09); }
+    .sb-logo-row { display:flex; align-items:center; gap:12px; }
+    .sb-logo-row .logo-icon { width:40px; height:40px; border-radius:10px; }
+    .sb-logo-name { font-family:'Cormorant Garamond',serif; font-size:1.22rem; font-weight:700; color:#fff; line-height:1.1; }
+    .sb-logo-sub { font-size:.7rem; color:rgba(255,255,255,.4); }
+    .sb-nav { padding:14px 10px; flex:1; }
+    .sb-section { font-size:.63rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.28); padding:12px 14px 5px; }
+    .nav-item { display:flex; align-items:center; gap:12px; padding:11px 14px; border-radius:var(--r-sm); cursor:pointer; transition:.2s; color:rgba(255,255,255,.62); font-size:.89rem; font-weight:500; margin-bottom:2px; }
+    .nav-item i { width:17px; text-align:center; font-size:.93rem; }
+    .nav-item:hover { background:rgba(255,255,255,.1); color:#fff; }
+    .nav-item.active { background:linear-gradient(135deg,var(--gold),var(--gold-br)); color:var(--forest); font-weight:700; box-shadow:0 4px 12px rgba(201,168,76,.35); }
+    .nav-item.active i { color:var(--forest); }
+    .sb-footer { padding:14px 10px 24px; border-top:1px solid rgba(255,255,255,.09); }
+    .nav-item.logout-btn { color:rgba(255,120,100,.72); }
+    .nav-item.logout-btn:hover { background:rgba(220,53,69,.15); color:#ff8a7e; }
+    .main-content { flex:1; margin-left:258px; min-height:100vh; display:flex; flex-direction:column; }
+    .top-bar { background:#fff; padding:15px 36px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border); position:sticky; top:0; z-index:50; }
+    .top-bar-left { display:flex; align-items:center; gap:14px; }
+    .crumb { display:flex; align-items:center; gap:7px; font-size:.84rem; color:var(--text-muted); }
+    .crumb-cur { color:var(--text); font-weight:600; }
+    .hamburger { display:none; background:none; border:1px solid var(--border); color:var(--text-mid); font-size:.97rem; cursor:pointer; padding:8px 10px; border-radius:var(--r-sm); transition:.2s; }
+    .hamburger:hover { background:var(--cream2); }
+    .user-chip { display:flex; align-items:center; gap:12px; background:var(--cream); border-radius:50px; padding:6px 16px 6px 6px; border:1px solid var(--border); }
+    .u-avatar { width:36px; height:36px; background:linear-gradient(135deg,var(--forest),var(--forest-lt)); border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:.88rem; color:#fff; flex-shrink:0; overflow:hidden; }
+    .u-avatar img { width:100%; height:100%; object-fit:cover; }
+    .u-name { font-weight:600; font-size:.84rem; color:var(--text); }
+    .u-id { font-size:.7rem; color:var(--text-muted); font-family:monospace; }
+    .page-body { padding:30px 36px; flex:1; }
+
+    /* CARDS */
+    .d-card { background:#fff; border-radius:var(--r-xl); padding:28px 32px; margin-bottom:24px; border:1px solid var(--border); box-shadow:var(--shadow-sm); }
+    .d-card-hd { display:flex; align-items:center; gap:12px; margin-bottom:24px; padding-bottom:18px; border-bottom:1px solid var(--border); }
+    .d-card-ico { width:40px; height:40px; background:var(--gold-pale); border-radius:var(--r-sm); display:flex; align-items:center; justify-content:center; color:var(--forest); font-size:1rem; }
+    .d-card-hd h3 { font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-weight:700; color:var(--forest); }
+
+    /* PROFILE */
+    .profile-layout { display:grid; grid-template-columns:auto 1fr; gap:48px; align-items:start; }
+    .avatar-block { display:flex; flex-direction:column; align-items:center; gap:14px; }
+    .avatar-circle { width:140px; height:140px; background:linear-gradient(135deg,var(--forest),var(--forest-lt)); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:3.2rem; color:#fff; overflow:hidden; border:4px solid #fff; box-shadow:var(--shadow-md); }
+    .avatar-wrapper { position:relative; display:inline-block; }
+    .avatar-edit-overlay { position:absolute; bottom:0; left:0; right:0; background:rgba(11,45,26,.72); backdrop-filter:blur(4px); border-radius:0 0 70px 70px; color:#fff; text-align:center; padding:8px; font-size:.68rem; font-weight:600; cursor:pointer; opacity:0; transition:opacity .2s; letter-spacing:.04em; }
+    .avatar-wrapper:hover .avatar-edit-overlay { opacity:1; }
+    .btn-sm { background:var(--cream2); border:1px solid var(--border); color:var(--text-mid); padding:8px 18px; border-radius:50px; cursor:pointer; font-size:.81rem; font-weight:600; font-family:'Outfit',sans-serif; transition:.2s; display:inline-flex; align-items:center; gap:7px; }
+    .btn-sm:hover { background:var(--cream); border-color:var(--sage); }
+    .btn-sm.primary { background:var(--forest); color:#fff; border-color:var(--forest); }
+    .btn-sm.primary:hover { background:var(--forest-lt); }
+    .info-grid { display:grid; grid-template-columns:1fr 1fr; }
+    .info-field { padding:16px 0; border-bottom:1px solid var(--border); }
+    .info-field:nth-child(odd) { padding-right:24px; border-right:1px solid var(--border); }
+    .info-field:nth-child(even) { padding-left:24px; }
+    .info-field:nth-last-child(-n+2) { border-bottom:none; }
+    .info-lbl { font-size:.7rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--text-muted); margin-bottom:5px; }
+    .info-val { font-size:.93rem; font-weight:600; color:var(--text); }
+    .info-val.mono { font-family:monospace; color:var(--forest-lt); font-size:.97rem; }
+
+    /* REGISTRATION TABLE */
+    .reg-stats { display:flex; gap:14px; margin-bottom:24px; flex-wrap:wrap; }
+    .reg-stat { background:var(--cream); border:1px solid var(--border); border-radius:var(--r-md); padding:13px 18px; display:flex; align-items:center; gap:11px; }
+    .reg-stat-ico { width:36px; height:36px; background:var(--gold-pale); border-radius:9px; display:flex; align-items:center; justify-content:center; color:var(--forest); font-size:.88rem; }
+    .reg-stat-num { font-size:1.3rem; font-weight:800; color:var(--forest); line-height:1; }
+    .reg-stat-lbl { font-size:.7rem; color:var(--text-muted); }
+    .data-table { width:100%; border-collapse:collapse; font-size:.87rem; }
+    .data-table thead tr { background:var(--cream); }
+    .data-table th { padding:12px 16px; text-align:left; font-size:.7rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase; color:var(--text-soft); border-bottom:2px solid var(--border); white-space:nowrap; }
+    .data-table td { padding:14px 16px; border-bottom:1px solid var(--border); vertical-align:middle; }
+    .data-table tbody tr { transition:background .14s; }
+    .data-table tbody tr:hover td { background:var(--cream); }
+    .data-table tbody tr:last-child td { border-bottom:none; }
+    .code-pill { font-family:monospace; font-size:.8rem; font-weight:700; color:var(--forest-lt); background:rgba(30,107,64,.08); padding:3px 9px; border-radius:6px; }
+    .status-chip { display:inline-flex; align-items:center; gap:5px; padding:4px 12px; border-radius:50px; font-size:.74rem; font-weight:700; }
+    .status-chip.registered { background:rgba(30,107,64,.1); color:var(--forest-lt); }
+    .status-chip.none { background:var(--cream2); color:var(--text-muted); }
+    .tbl-btn { border:none; padding:7px 16px; border-radius:50px; cursor:pointer; font-size:.77rem; font-weight:700; transition:.2s; font-family:'Outfit',sans-serif; color:#fff; display:inline-flex; align-items:center; gap:6px; white-space:nowrap; }
+    .tbl-btn.enroll { background:var(--forest); }
+    .tbl-btn.enroll:hover { background:var(--forest-lt); transform:translateY(-1px); }
+    .tbl-btn.drop { background:#C0392B; }
+    .tbl-btn.drop:hover { background:#A93226; transform:translateY(-1px); }
+
+    /* RESULTS */
+    .gpa-banner { background:linear-gradient(135deg,var(--forest) 0%,var(--forest-lt) 100%); border-radius:var(--r-xl); padding:32px 36px; display:flex; align-items:center; gap:36px; margin-bottom:28px; flex-wrap:wrap; position:relative; overflow:hidden; }
+    .gpa-banner::before { content:''; position:absolute; right:-60px; top:-60px; width:240px; height:240px; background:rgba(201,168,76,.09); border-radius:50%; }
+    .gpa-circle { width:106px; height:106px; background:rgba(255,255,255,.1); border-radius:50%; display:flex; flex-direction:column; align-items:center; justify-content:center; border:3px solid rgba(201,168,76,.45); flex-shrink:0; }
+    .gpa-num { font-family:'Cormorant Garamond',serif; font-size:2.5rem; font-weight:700; line-height:1; color:var(--gold-br); }
+    .gpa-lbl-sm { font-size:.63rem; color:rgba(255,255,255,.48); font-weight:600; letter-spacing:.06em; text-transform:uppercase; }
+    .gpa-info h3 { font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-weight:700; color:#fff; margin-bottom:4px; }
+    .gpa-info p { font-size:.84rem; color:rgba(255,255,255,.58); margin-bottom:10px; }
+    .gpa-class { display:inline-block; background:rgba(201,168,76,.2); border:1px solid rgba(201,168,76,.38); color:var(--gold-br); font-size:.76rem; font-weight:700; padding:5px 14px; border-radius:50px; letter-spacing:.05em; text-transform:uppercase; }
+    .grade-A { color:#1a8a4a; font-weight:700; }
+    .grade-B { color:#2471A3; font-weight:700; }
+    .grade-C { color:#D35400; font-weight:700; }
+    .grade-F { color:#C0392B; font-weight:700; }
+
+    /* VIDEOS */
+    .upload-zone { border:2px dashed rgba(11,45,26,.18); border-radius:var(--r-xl); padding:52px 40px; text-align:center; cursor:pointer; transition:.25s; background:var(--cream); }
+    .upload-zone:hover { border-color:var(--forest-lt); background:rgba(30,107,64,.04); }
+    .upload-zone-ico { width:62px; height:62px; background:var(--gold-pale); border-radius:var(--r-md); display:flex; align-items:center; justify-content:center; font-size:1.5rem; color:var(--forest); margin:0 auto 16px; }
+    .upload-zone h3 { font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-weight:700; color:var(--forest); margin-bottom:6px; }
+    .upload-zone p { font-size:.82rem; color:var(--text-soft); }
+    .progress-bar { width:100%; height:5px; background:var(--border); border-radius:10px; margin-top:16px; overflow:hidden; }
+    .progress-fill { height:100%; background:linear-gradient(90deg,var(--forest-lt),var(--gold)); border-radius:10px; width:0%; transition:width .2s ease; }
+    .video-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(270px,1fr)); gap:16px; margin-top:24px; }
+    .video-card { background:var(--cream); border:1px solid var(--border); border-radius:var(--r-lg); overflow:hidden; transition:.2s; }
+    .video-card:hover { box-shadow:var(--shadow-md); transform:translateY(-3px); }
+    .video-thumb { width:100%; height:155px; background:linear-gradient(135deg,var(--forest),var(--forest-lt)); display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:2.5rem; color:rgba(255,255,255,.75); position:relative; transition:.2s; }
+    .video-thumb:hover { background:linear-gradient(135deg,var(--forest-mid),var(--forest-lt)); }
+    .video-thumb::after { content:''; position:absolute; width:58px; height:58px; background:rgba(255,255,255,.14); border-radius:50%; transition:.2s; }
+    .video-thumb:hover::after { background:rgba(255,255,255,.22); transform:scale(1.15); }
+    .video-thumb i { position:relative; z-index:1; }
+    .vid-body { padding:16px; }
+    .vid-name { font-weight:600; font-size:.87rem; color:var(--text); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; margin-bottom:6px; }
+    .vid-meta { font-size:.73rem; color:var(--text-muted); display:flex; gap:10px; flex-wrap:wrap; margin-bottom:12px; }
+    .btn-delete { background:rgba(192,57,43,.1); color:#C0392B; border:none; padding:6px 14px; border-radius:50px; cursor:pointer; font-size:.74rem; font-weight:700; font-family:'Outfit',sans-serif; transition:.2s; display:inline-flex; align-items:center; gap:6px; }
+    .btn-delete:hover { background:rgba(192,57,43,.2); }
+
+    /* TOAST */
+    .toast-container { position:fixed; bottom:24px; right:24px; z-index:9999; display:flex; flex-direction:column; gap:10px; pointer-events:none; }
+    .toast { padding:13px 20px; border-radius:var(--r-md); color:#fff; font-weight:600; font-size:.87rem; box-shadow:var(--shadow-lg); animation:toastIn .35s cubic-bezier(.34,1.56,.64,1); pointer-events:auto; max-width:340px; display:flex; align-items:center; gap:10px; border:1px solid rgba(255,255,255,.14); }
+    .toast.success { background:linear-gradient(135deg,#0f6b35,#1a8a4a); }
+    .toast.error   { background:linear-gradient(135deg,#A93226,#C0392B); }
+    .toast.info    { background:linear-gradient(135deg,#1a4a72,#2471A3); }
+    .toast.warning { background:linear-gradient(135deg,#9a6300,#c48000); }
+    @keyframes toastIn  { from{transform:translateX(120%);opacity:0} to{transform:translateX(0);opacity:1} }
+    @keyframes toastOut { from{transform:translateX(0);opacity:1} to{transform:translateX(120%);opacity:0} }
+    .toast.removing { animation:toastOut .3s ease forwards; }
+
+    /* MODAL */
+    .modal { display:none; position:fixed; inset:0; background:rgba(0,0,0,.9); z-index:1000; align-items:center; justify-content:center; backdrop-filter:blur(8px); }
+    .modal-content video { max-width:90vw; max-height:85vh; border-radius:var(--r-lg); outline:none; }
+    .close-modal { position:absolute; top:20px; right:32px; color:rgba(255,255,255,.7); font-size:2rem; cursor:pointer; transition:.2s; line-height:1; }
+    .close-modal:hover { color:#fff; }
+
+    /* EDIT INPUTS */
+    .edit-input { width:100%; padding:12px 16px; border-radius:var(--r-md); border:1.5px solid var(--border); font-family:'Outfit',sans-serif; font-size:.91rem; color:var(--text); background:var(--cream); outline:none; transition:.2s; margin:5px 0 12px; }
+    .edit-input:focus { border-color:var(--forest-lt); box-shadow:0 0 0 4px rgba(30,107,64,.09); background:#fff; }
+    .edit-label { font-size:.73rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase; color:var(--text-soft); display:block; margin-top:10px; }
+
+    /* MISC */
+    .sidebar-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,.52); z-index:99; backdrop-filter:blur(2px); }
+    .sidebar-overlay.open { display:block; }
+    .spinner { display:flex; align-items:center; justify-content:center; padding:60px; }
+    .spinner::after { content:''; width:34px; height:34px; border:3px solid var(--border); border-top-color:var(--forest); border-radius:50%; animation:spin .7s linear infinite; }
+    @keyframes spin { to{transform:rotate(360deg)} }
+    .hidden { display:none!important; }
+    .upload-status { text-align:center; color:var(--text-soft); font-size:.87rem; margin-top:6px; }
+
+    /* ── MOBILE NAV (landing) ─────────────────────────────── */
+    .nav-hamburger {
+      display: none;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.22);
+      color: #fff;
+      width: 42px; height: 42px;
+      border-radius: var(--r-sm);
+      align-items: center; justify-content: center;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: .2s;
+      flex-shrink: 0;
+    }
+    .nav-hamburger:hover { background: rgba(255,255,255,.2); }
+    .mobile-nav-drawer {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      width: 100%;
+      background: rgba(11,45,26,.97);
+      backdrop-filter: blur(16px);
+      border-top: 1px solid rgba(255,255,255,.1);
+      padding: 16px 20px 20px;
+      position: absolute;
+      top: 100%;
+      left: 0; right: 0;
+      z-index: 200;
+      box-shadow: 0 16px 40px rgba(0,0,0,.4);
+    }
+    .mobile-nav-drawer.open { display: flex; }
+    .mobile-nav-drawer a,
+    .mobile-nav-drawer button:not(.btn-portal) {
+      display: block;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: .95rem;
+      color: rgba(255,255,255,.85);
+      padding: 12px 16px;
+      border-radius: var(--r-sm);
+      transition: .18s;
+      background: transparent;
+      border: none;
+      font-family: 'Outfit',sans-serif;
+      text-align: left;
+      cursor: pointer;
+      width: 100%;
+    }
+    .mobile-nav-drawer a:hover,
+    .mobile-nav-drawer button:not(.btn-portal):hover { background: rgba(255,255,255,.1); color: #fff; }
+    .mobile-nav-drawer .mob-portal {
+      margin-top: 8px;
+      background: linear-gradient(135deg,var(--gold),var(--gold-br));
+      color: var(--forest)!important;
+      font-weight: 700!important;
+      text-align: center!important;
+      border-radius: 50px!important;
+      padding: 13px 16px!important;
+      box-shadow: 0 4px 16px rgba(201,168,76,.4);
+    }
+    /* Mobile nav wrapper needs position:relative */
+    .mob-nav-wrap { position: relative; }
+
+    /* ── RESPONSIVE ───────────────────────────────────────── */
+
+    /* Tablet */
+    @media(max-width:1024px){
+      .hero { grid-template-columns:1fr; gap:36px; }
+      .hero h1 { font-size:3.2rem; }
+      .hero-visual { display:none; }
+      .about-inner { grid-template-columns:1fr; gap:36px; }
+      .about-img-main { height:320px; }
+      .about-img-badge { left:12px; bottom:16px; }
+      .about-img-tag { right:12px; top:16px; }
+      .features-grid { grid-template-columns:1fr 1fr; }
+      .login-page { grid-template-columns:1fr; }
+      .login-left { display:none; }
+      .login-right { padding:44px 32px; }
+      .programs-grid { grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); }
+    }
+
+    /* Mobile */
+    @media(max-width:768px){
+      /* iOS: fixed bg attachment breaks scroll */
+      .landing-page { background-attachment: scroll; }
+
+      .lc { padding:0 18px; }
+
+      /* Nav */
+      nav { padding:18px 0 16px; flex-wrap:nowrap; }
+      .nav-links { display:none; }
+      .nav-hamburger { display:flex; }
+      .logo-text { font-size:1.5rem; }
+
+      /* Hero */
+      .hero { padding:44px 0 56px; grid-template-columns:1fr; text-align:center; }
+      .hero h1 { font-size:2.4rem; }
+      .hero > div:first-child p { margin-left:auto; margin-right:auto; }
+      .hero-btns { justify-content:center; }
+      .hero-eyebrow { font-size:.7rem; }
+      .btn-primary, .btn-ghost { padding:13px 24px; font-size:.9rem; }
+
+      /* Marquee */
+      .marquee-item { padding:0 28px; font-size:.72rem; }
+
+      /* About */
+      .about-wrapper { padding:60px 18px; }
+      .about-img-stack { margin-bottom:8px; }
+      .about-img-main { height:240px; border-radius:var(--r-lg); }
+      .about-img-badge { left:10px; bottom:10px; padding:14px 16px; min-width:unset; border-radius:var(--r-md); }
+      .about-badge-num { font-size:2.2rem; }
+      .about-img-badge p { font-size:.72rem; }
+      .about-img-tag { right:10px; top:10px; font-size:.7rem; padding:7px 14px; }
+      .section-title { font-size:2.2rem; }
+      .timeline-strip { flex-direction:column; }
+      .tl-item { border-right:none; border-bottom:1px solid var(--border); }
+      .tl-item:last-child { border-bottom:none; }
+
+      /* Programs */
+      .programs-wrapper { padding:60px 18px; }
+      .programs-head { flex-direction:column; align-items:flex-start; gap:10px; }
+      .programs-head p { max-width:100%; }
+      .programs-grid { grid-template-columns:1fr 1fr; gap:14px; }
+      .prog-card-img { height:120px; }
+      .prog-card-body { padding:14px 16px 18px; }
+      .prog-card-body h3 { font-size:1rem; }
+      .prog-card-body p { font-size:.76rem; }
+      .prog-duration { font-size:.65rem; }
+      .prog-icon { width:32px; height:32px; font-size:.82rem; margin-bottom:10px; }
+
+      /* Features */
+      .features-wrapper { padding:60px 18px; }
+      .features-grid { grid-template-columns:1fr; gap:20px; }
+      .feat-card-img { height:170px; }
+      .cta-wrapper { padding:64px 18px; }
+      .cta-inner h2 { font-size:2.4rem; }
+      .btn-cta { padding:14px 32px; font-size:.92rem; }
+
+      /* Footer */
+      .site-footer { padding:28px 18px; font-size:.8rem; }
+
+      /* Login */
+      .login-right { padding:36px 22px; min-height:100vh; }
+      .login-box h1 { font-size:2rem; }
+
+      /* Dashboard sidebar */
+      .hamburger { display:flex; }
+      .sidebar { transform:translateX(-100%); width:272px; }
+      .sidebar.open { transform:translateX(0); }
+      .main-content { margin-left:0; }
+      .top-bar { padding:12px 16px; }
+      .page-body { padding:16px 14px; }
+
+      /* Top bar breadcrumb — hide on tiny screens */
+      .crumb > span:first-child,
+      .crumb > i { display:none; }
+
+      /* Cards */
+      .d-card { padding:20px 18px; border-radius:var(--r-lg); }
+      .d-card-hd { margin-bottom:18px; padding-bottom:14px; }
+
+      /* Profile */
+      .profile-layout { grid-template-columns:1fr; gap:24px; }
+      .avatar-block { flex-direction:row; align-items:center; gap:20px; justify-content:flex-start; }
+      .avatar-circle { width:90px; height:90px; font-size:2.2rem; }
+      .info-grid { grid-template-columns:1fr; }
+      .info-field:nth-child(odd) { padding-right:0; border-right:none; }
+      .info-field:nth-child(even) { padding-left:0; }
+      .info-field:nth-last-child(-n+2) { border-bottom:1px solid var(--border); }
+      .info-field:last-child { border-bottom:none; }
+
+      /* Registration stats */
+      .reg-stats { gap:10px; }
+      .reg-stat { padding:11px 14px; flex:1 1 auto; min-width:calc(50% - 5px); }
+
+      /* Tables — horizontal scroll */
+      .data-table th, .data-table td { padding:10px 10px; font-size:.78rem; white-space:nowrap; }
+      .data-table td:nth-child(4) { display:none; } /* hide Lecturer col on mobile */
+      .data-table th:nth-child(4) { display:none; }
+
+      /* Results GPA banner */
+      .gpa-banner { flex-direction:column; gap:18px; text-align:center; padding:24px 20px; }
+      .gpa-info { text-align:center; }
+
+      /* Video grid */
+      .video-grid { grid-template-columns:1fr; }
+      .video-thumb { height:180px; }
+
+      /* Upload zone */
+      .upload-zone { padding:36px 20px; }
+
+      /* Toast full width on mobile */
+      .toast-container { left:14px; right:14px; bottom:16px; }
+      .toast { max-width:100%; }
+    }
+
+    /* Small phones */
+    @media(max-width:420px){
+      .hero h1 { font-size:2rem; }
+      .hero-btns { flex-direction:column; gap:10px; }
+      .btn-primary, .btn-ghost { width:100%; justify-content:center; }
+      .programs-grid { grid-template-columns:1fr; }
+      .prog-card-img { height:150px; }
+      .section-title { font-size:1.9rem; }
+      .cta-inner h2 { font-size:2rem; }
+      .btn-cta { width:100%; justify-content:center; }
+      .d-card { padding:16px 14px; }
+      .avatar-block { flex-direction:column; align-items:center; }
+      .avatar-circle { width:100px; height:100px; }
+      .reg-stat { min-width:100%; }
+      .data-table th, .data-table td { padding:8px 8px; font-size:.74rem; }
+      .tbl-btn { padding:6px 12px; font-size:.72rem; }
+      .gpa-num { font-size:2.1rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- legacy bg kept but hidden -->
+  <div class="animated-bg">
+    <video autoplay muted loop playsinline>
+      <source src="https://assets.mixkit.co/videos/preview/mixkit-wheat-field-under-cloudy-sky-40767-large.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="bg-overlay"></div>
+  <div class="floating-agri"><i class="fas fa-seedling"></i></div>
+
+  <div id="appRoot"></div>
+
+  <div id="videoModal" class="modal">
+    <span class="close-modal" id="closeModalBtn">&times;</span>
+    <div class="modal-content"><video id="modalVideo" controls></video></div>
+  </div>
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script>
+    // ─────────────────────────────────────────────────────────
+    // GLOBALS
+    // ─────────────────────────────────────────────────────────
+    let currentStudent = null;
+
+    const programmesList = [
+      { name:'BSc Agriculture',                    icon:'fas fa-tractor',    duration:'4 years',  description:'Comprehensive degree in modern agricultural practices',
+        img:'WhatsApp%20Image%202026-04-08%20at%205.05.48%20PM.jpeg' },
+      { name:'BSc Agribusiness',                   icon:'fas fa-chart-line', duration:'4 years',  description:'Combine business management with agricultural production',
+        img:'WhatsApp%20Image%202026-04-08%20at%205.05.47%20PM.jpeg' },
+      { name:'Diploma in Crop Science',            icon:'fas fa-seedling',   duration:'2 years',  description:'Specialized training in crop production and management',
+        img:'WhatsApp%20Image%202026-04-08%20at%205.05.50%20PM.jpeg' },
+      { name:'Certificate in General Agriculture', icon:'fas fa-leaf',       duration:'1 year',   description:'Foundation course for entry into the agricultural sector',
+        img:'WhatsApp%20Image%202026-04-08%20at%205.05.49%20PM.jpeg' },
+      { name:'Non-Traditional Crops',              icon:'fas fa-apple-alt',  duration:'6 months', description:'Specialized training in export and cash crops',
+        img:'WhatsApp%20Image%202026-04-08%20at%205.05.48%20PM%20(1).jpeg' },
+    ];
+
+    // ─────────────────────────────────────────────────────────
+    // TOAST
+    // ─────────────────────────────────────────────────────────
+    function showToast(message, type = 'info') {
+      const container = document.getElementById('toastContainer');
+      if (!container) return;
+      const icons = { success:'fa-check-circle', error:'fa-times-circle', info:'fa-info-circle', warning:'fa-exclamation-circle' };
+      const toast = document.createElement('div');
+      toast.className = `toast ${type}`;
+      toast.innerHTML = `<i class="fas ${icons[type] || icons.info}"></i> ${message}`;
+      container.appendChild(toast);
+      setTimeout(() => { toast.classList.add('removing'); setTimeout(() => toast.remove(), 300); }, 3500);
+    }
+
+    // ─────────────────────────────────────────────────────────
+    // API HELPERS
+    // ─────────────────────────────────────────────────────────
+    async function api(url, options = {}) {
+      const res = await fetch(url, {
+        credentials: 'same-origin',
+        headers: { 'Content-Type': 'application/json', ...(options.headers || {}) },
+        ...options,
+      });
+      return res.json();
+    }
+
+    // ─────────────────────────────────────────────────────────
+    // LANDING
+    // ─────────────────────────────────────────────────────────
+    function renderLanding() {
+      const marqueeItems = [
+        { icon:'fa-tractor',       label:'Modern Agriculture' },
+        { icon:'fa-flask',         label:'Research Labs' },
+        { icon:'fa-graduation-cap',label:'80+ Years of Excellence' },
+        { icon:'fa-seedling',      label:'Crop Science' },
+        { icon:'fa-handshake',     label:'Industry Partnerships' },
+        { icon:'fa-globe-africa',  label:'Serving Ghana Since 1944' },
+        { icon:'fa-award',         label:'Accredited Programmes' },
+        { icon:'fa-users',         label:'Expert Faculty' },
+      ];
+      const marqueeHTML = [...marqueeItems, ...marqueeItems]
+        .map(m => `<span class="marquee-item"><i class="fas ${m.icon}"></i>${m.label}</span>`)
+        .join('<span class="marquee-item" style="opacity:.25">&#8212;</span>');
+
+      document.getElementById('appRoot').innerHTML = `
+        <div class="landing-page">
+          <div class="lc">
+            <div class="mob-nav-wrap">
+            <nav>
+              <a href="#" class="logo">
+                <div class="logo-icon"><i class="fas fa-leaf"></i></div>
+                <div class="logo-text">Ekow Agric<span>-Institute</span></div>
+              </a>
+              <div class="nav-links">
+                <a href="#" id="navHome">Home</a>
+                <a href="#" id="navAbout">About</a>
+                <div class="dropdown">
+                  <button class="dropdown-btn">Programmes <i class="fas fa-chevron-down"></i></button>
+                  <div class="dropdown-content">
+                    ${programmesList.map(p => `<a href="#"><i class="fas fa-book-open" style="color:var(--gold);font-size:.8rem;"></i>${p.name}</a>`).join('')}
+                  </div>
+                </div>
+                <button class="btn-portal" id="goToPortalBtn">Student Portal &rarr;</button>
+              </div>
+              <button class="nav-hamburger" id="navHamburger" aria-label="Menu"><i class="fas fa-bars"></i></button>
+            </nav>
+            <div class="mobile-nav-drawer" id="mobileNavDrawer">
+              <a href="#" id="mobNavHome"><i class="fas fa-home" style="margin-right:10px;opacity:.6;"></i>Home</a>
+              <a href="#" id="mobNavAbout"><i class="fas fa-landmark" style="margin-right:10px;opacity:.6;"></i>About</a>
+              <a href="#" id="mobNavPrograms"><i class="fas fa-graduation-cap" style="margin-right:10px;opacity:.6;"></i>Programmes</a>
+              <button class="mob-portal" id="mobNavPortal"><i class="fas fa-user-graduate" style="margin-right:8px;"></i>Student Portal</button>
+            </div>
+            </div>
+
+            <!-- HERO -->
+            <div class="hero" id="homeSection">
+              <div>
+                <div class="hero-eyebrow"><i class="fas fa-graduation-cap"></i>Excellence in Agriculture Since 1944</div>
+                <h1>Welcome to<br><em>Ekow Agric</em><br>Institute</h1>
+                <p>Empowering the next generation of agricultural leaders through quality education, research, and hands-on innovation in the heart of Ghana.</p>
+                <div class="hero-btns">
+                  <button class="btn-primary" id="exploreProgramsBtn"><i class="fas fa-book-open"></i> Explore Programs</button>
+                  <button class="btn-ghost" id="studentPortalBtn"><i class="fas fa-user-graduate"></i> Student Portal</button>
+                </div>
+              </div>
+              <div class="hero-visual">
+                <div class="hero-badge-float"><i class="fas fa-award"></i> Accredited Institution</div>
+                <div class="hero-card">
+                  <img class="hero-card-img" src="WhatsApp%20Image%202026-04-08%20at%205.05.47%20PM%20(1).jpeg" alt="Students in field">
+                  <div class="hero-stats">
+                    <div class="hero-stat"><span class="hero-stat-num">80+</span><span class="hero-stat-label">Years Est.</span></div>
+                    <div class="hero-stat"><span class="hero-stat-num">5</span><span class="hero-stat-label">Programmes</span></div>
+                    <div class="hero-stat"><span class="hero-stat-num">100%</span><span class="hero-stat-label">Accredited</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- MARQUEE -->
+          <div class="marquee-bar">
+            <div class="marquee-track">${marqueeHTML}</div>
+          </div>
+
+          <!-- ABOUT -->
+          <div class="about-wrapper" id="aboutSection">
+            <div class="about-inner">
+              <div class="about-img-stack">
+                <img class="about-img-main" src="WhatsApp%20Image%202026-04-08%20at%205.05.49%20PM%20(1).jpeg" alt="Ekow Agric-Institute campus">
+                <div class="about-img-badge">
+                  <div class="about-badge-num">19<span>44</span></div>
+                  <p>Year of Establishment</p>
+                </div>
+                <div class="about-img-tag"><i class="fas fa-map-marker-alt"></i> Sombo, Ghana</div>
+              </div>
+              <div class="about-content">
+                <div class="section-eyebrow">Our History &amp; Legacy</div>
+                <h2 class="section-title">Cultivating <em>Leaders</em><br>Since 1944</h2>
+                <p class="about-text"><strong>Ekow Agric-Institute</strong> was established in <strong>1944</strong> at Sombo with structures provided by Cadbury and Fry. The Institute was established to initially train young school leavers in crop production.</p>
+                <p class="about-text">As a result of the <strong>2nd World War</strong>, the institution was expanded in <strong>1945</strong> to admit secondary school leavers to train in General Agriculture.</p>
+                <p class="about-text">In <strong>1962</strong>, the Department of Agriculture acquired the Central Agric Station for Agricultural Research and Training — cementing our role as a national centre of excellence.</p>
+                <div class="timeline-strip">
+                  <div class="tl-item"><span class="tl-year">19<span>44</span></span><p class="tl-desc">Established at Sombo with Cadbury &amp; Fry support</p></div>
+                  <div class="tl-item"><span class="tl-year">19<span>45</span></span><p class="tl-desc">Expanded during WWII to train General Agriculture</p></div>
+                  <div class="tl-item"><span class="tl-year">19<span>62</span></span><p class="tl-desc">Acquired Central Agric Station for Research</p></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PROGRAMS -->
+          <div class="programs-wrapper" id="programsSection">
+            <div class="programs-inner">
+              <div class="programs-head">
+                <div>
+                  <div class="section-eyebrow">Academic Programmes</div>
+                  <h2 class="section-title">Choose Your <em>Path</em></h2>
+                </div>
+                <p style="color:rgba(255,255,255,.55);max-width:320px;font-size:.9rem;line-height:1.7;">Diverse range of accredited agricultural programmes designed for tomorrow's leaders.</p>
+              </div>
+              <div class="programs-grid">
+                ${programmesList.map(p => `
+                  <div class="prog-card">
+                    <img class="prog-card-img" src="${p.img}" alt="${p.name}">
+                    <div class="prog-card-body">
+                      <div class="prog-icon"><i class="${p.icon}"></i></div>
+                      <h3>${p.name}</h3>
+                      <span class="prog-duration"><i class="fas fa-clock" style="margin-right:5px;"></i>${p.duration}</span>
+                      <p>${p.description}</p>
+                    </div>
+                  </div>`).join('')}
+              </div>
+            </div>
+          </div>
+
+          <!-- FEATURES -->
+          <div class="features-wrapper">
+            <div class="features-inner">
+              <div class="features-head">
+                <div class="section-eyebrow">Why Choose Us</div>
+                <h2 class="section-title">The Ekow <em>Advantage</em></h2>
+                <p style="color:var(--text-soft);max-width:520px;margin:0 auto;font-size:.95rem;line-height:1.75;">We combine traditional agricultural wisdom with modern educational techniques and world-class facilities.</p>
+              </div>
+              <div class="features-grid">
+                <div class="feat-card">
+                  <img class="feat-card-img" src="WhatsApp%20Image%202026-04-08%20at%205.05.48%20PM%20(1).jpeg" alt="Expert Faculty">
+                  <div class="feat-card-body">
+                    <div class="feat-icon"><i class="fas fa-chalkboard-user"></i></div>
+                    <h3>Expert Faculty</h3>
+                    <p>Learn from experienced agricultural professionals and researchers with decades of field and academic expertise.</p>
+                  </div>
+                </div>
+                <div class="feat-card">
+                  <img class="feat-card-img" src="WhatsApp%20Image%202026-04-08%20at%205.05.50%20PM.jpeg" alt="Practical Training">
+                  <div class="feat-card-body">
+                    <div class="feat-icon"><i class="fas fa-flask"></i></div>
+                    <h3>Hands-On Training</h3>
+                    <p>Real field experience from day one — students learn directly in our demonstration plots and research farms.</p>
+                  </div>
+                </div>
+                <div class="feat-card">
+                  <img class="feat-card-img" src="WhatsApp%20Image%202026-04-08%20at%205.05.47%20PM.jpeg" alt="Smart Farming">
+                  <div class="feat-card-body">
+                    <div class="feat-icon"><i class="fas fa-handshake"></i></div>
+                    <h3>Smart Agriculture</h3>
+                    <p>Cutting-edge technology integration including solar-powered agri-tech, digital tools, and industry partnerships across Ghana.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <div class="cta-wrapper">
+            <div class="cta-inner">
+              <div class="section-eyebrow">Join Us Today</div>
+              <h2>Ready to Start Your<br><em>Agricultural Journey?</em></h2>
+              <p>Join our community of future agricultural leaders. Applications are open for the upcoming academic year.</p>
+              <button class="btn-cta" id="finalCtaBtn"><i class="fas fa-arrow-right"></i> Apply Now</button>
+            </div>
+          </div>
+
+          <footer class="site-footer">
+            <p><i class="far fa-copyright"></i> 2025 Ekow Agric-Institute &mdash; Cultivating the future of agriculture in Ghana</p>
+          </footer>
+        </div>
+      `;
+
+      const scrollTo = id => { document.getElementById(id)?.scrollIntoView({behavior:'smooth'}); };
+      const closeMobNav = () => document.getElementById('mobileNavDrawer')?.classList.remove('open');
+
+      document.getElementById('navHome')?.addEventListener('click', e => { e.preventDefault(); scrollTo('homeSection'); });
+      document.getElementById('navAbout')?.addEventListener('click', e => { e.preventDefault(); scrollTo('aboutSection'); });
+      document.getElementById('goToPortalBtn')?.addEventListener('click', showStudentLogin);
+      document.getElementById('studentPortalBtn')?.addEventListener('click', showStudentLogin);
+      document.getElementById('exploreProgramsBtn')?.addEventListener('click', () => scrollTo('programsSection'));
+      document.getElementById('finalCtaBtn')?.addEventListener('click', () => showToast('Thank you for your interest! Please visit our admissions office.', 'info'));
+
+      // Mobile nav
+      document.getElementById('navHamburger')?.addEventListener('click', () => {
+        const drawer = document.getElementById('mobileNavDrawer');
+        const icon   = document.querySelector('#navHamburger i');
+        const open   = drawer.classList.toggle('open');
+        if (icon) icon.className = open ? 'fas fa-times' : 'fas fa-bars';
+      });
+      document.getElementById('mobNavHome')?.addEventListener('click', e => { e.preventDefault(); closeMobNav(); scrollTo('homeSection'); });
+      document.getElementById('mobNavAbout')?.addEventListener('click', e => { e.preventDefault(); closeMobNav(); scrollTo('aboutSection'); });
+      document.getElementById('mobNavPrograms')?.addEventListener('click', e => { e.preventDefault(); closeMobNav(); scrollTo('programsSection'); });
+      document.getElementById('mobNavPortal')?.addEventListener('click', () => { closeMobNav(); showStudentLogin(); });
+    }
+
+    // ─────────────────────────────────────────────────────────
+    // LOGIN
+    // ─────────────────────────────────────────────────────────
+    function showStudentLogin() {
+      document.getElementById('appRoot').innerHTML = `
+        <div class="login-page">
+          <div class="login-left">
+            <div class="login-left-logo">
+              <div class="logo-icon"><i class="fas fa-leaf"></i></div>
+              <div>
+                <div class="login-logo-name">Ekow Agric-Institute</div>
+                <div class="login-logo-sub">Student Portal</div>
+              </div>
+            </div>
+            <div class="login-quote">
+              <blockquote>"Agriculture is the foundation upon which all civilisation rests."</blockquote>
+              <cite>Ekow Agric-Institute &mdash; Est. 1944</cite>
+            </div>
+          </div>
+          <div class="login-right">
+            <div class="login-box">
+              <h1>Welcome Back</h1>
+              <p>Sign in to access your student portal</p>
+              <div class="form-field">
+                <label class="form-label">Index Number</label>
+                <input class="form-input" type="text" id="loginIndex" placeholder="e.g. AGRI/2024/001">
+              </div>
+              <div class="form-field">
+                <label class="form-label">Password</label>
+                <div class="input-wrap">
+                  <input class="form-input" type="password" id="loginPass" placeholder="Enter your password" style="padding-right:48px;">
+                  <button type="button" class="eye-btn" id="togglePassword"><i class="fas fa-eye" id="eyeIcon"></i></button>
+                </div>
+              </div>
+              <button class="btn-login" id="doLogin"><i class="fas fa-sign-in-alt"></i> Sign In</button>
+              <div class="login-error" id="loginError"></div>
+              <div class="demo-box">
+                <strong><i class="fas fa-info-circle"></i> Demo Credentials</strong><br>
+                Index: <code>AGRI/2024/001</code> &nbsp;|&nbsp; Password: <code>student123</code><br>
+                Index: <code>AGRI/2024/002</code> &nbsp;|&nbsp; Password: <code>student123</code>
+              </div>
+              <button class="btn-back" id="backToLanding"><i class="fas fa-arrow-left"></i> Back to Home</button>
+            </div>
+          </div>
+        </div>
+      `;
+
+      document.getElementById('togglePassword')?.addEventListener('click', () => {
+        const input = document.getElementById('loginPass');
+        const icon  = document.getElementById('eyeIcon');
+        const show  = input.type === 'password';
+        input.type  = show ? 'text' : 'password';
+        icon.className = show ? 'fas fa-eye-slash' : 'fas fa-eye';
+      });
+
+      async function attemptLogin() {
+        const btn = document.getElementById('doLogin');
+        const idx = document.getElementById('loginIndex').value.trim();
+        const pwd = document.getElementById('loginPass').value;
+        const err = document.getElementById('loginError');
+        err.innerText = '';
+        if (!idx || !pwd) { err.innerText = 'Please fill in all fields.'; return; }
+        btn.disabled = true;
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Signing in&hellip;';
+        try {
+          const data = await api('api/login.php', { method:'POST', body: JSON.stringify({ index_number: idx, password: pwd }) });
+          if (data.success) {
+            currentStudent = data.student;
+            renderDashboard();
+          } else {
+            err.innerText = data.message || 'Invalid credentials.';
+            document.getElementById('loginPass').style.borderColor = '#C0392B';
+          }
+        } catch {
+          err.innerText = 'Connection error. Is the server running?';
+        }
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fas fa-sign-in-alt"></i> Sign In';
+      }
+
+      document.getElementById('doLogin')?.addEventListener('click', attemptLogin);
+      document.getElementById('loginIndex')?.addEventListener('keydown', e => { if (e.key === 'Enter') document.getElementById('loginPass')?.focus(); });
+      document.getElementById('loginPass')?.addEventListener('keydown', e => { if (e.key === 'Enter') attemptLogin(); });
+      document.getElementById('backToLanding')?.addEventListener('click', renderLanding);
+    }
+
+    // ─────────────────────────────────────────────────────────
+    // DASHBOARD SHELL
+    // ─────────────────────────────────────────────────────────
+    function renderDashboard() {
+      if (!currentStudent) { showStudentLogin(); return; }
+      document.getElementById('appRoot').innerHTML = `
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+        <div class="dash-root">
+          <div class="sidebar" id="mainSidebar">
+            <div class="sb-logo">
+              <div class="sb-logo-row">
+                <div class="logo-icon"><i class="fas fa-leaf"></i></div>
+                <div>
+                  <div class="sb-logo-name">Ekow Agric</div>
+                  <div class="sb-logo-sub">Student Portal</div>
+                </div>
+              </div>
+            </div>
+            <div class="sb-nav" id="dynamicNav">
+              <div class="sb-section">Navigation</div>
+              <div class="nav-item active" data-page="profile"><i class="fas fa-user"></i> My Profile</div>
+              <div class="nav-item" data-page="register"><i class="fas fa-book-open"></i> Registration</div>
+              <div class="nav-item" data-page="results"><i class="fas fa-chart-line"></i> Results</div>
+              <div class="nav-item" data-page="videos"><i class="fas fa-video"></i> My Videos</div>
+            </div>
+            <div class="sb-footer">
+              <div class="nav-item logout-btn" data-page="logout"><i class="fas fa-sign-out-alt"></i> Logout</div>
+            </div>
+          </div>
+          <div class="main-content">
+            <div class="top-bar">
+              <div class="top-bar-left">
+                <button class="hamburger" id="menuToggle"><i class="fas fa-bars"></i></button>
+                <div class="crumb">
+                  <span>Portal</span>
+                  <i class="fas fa-chevron-right"></i>
+                  <span class="crumb-cur" id="pageTitle">My Profile</span>
+                </div>
+              </div>
+              <div class="user-chip">
+                <div class="u-avatar" id="topbarAvatar">
+                  ${currentStudent.profile_photo
+                    ? `<img src="${currentStudent.profile_photo}" alt="avatar">`
+                    : currentStudent.name.charAt(0).toUpperCase()}
+                </div>
+                <div>
+                  <div class="u-name">${currentStudent.name}</div>
+                  <div class="u-id">${currentStudent.index_number}</div>
+                </div>
+              </div>
+            </div>
+            <div class="page-body"><div id="pageContent"></div></div>
+          </div>
+        </div>
+      `;
+      attachNavEvents();
+      document.getElementById('menuToggle')?.addEventListener('click', () => {
+        document.getElementById('mainSidebar').classList.toggle('open');
+        document.getElementById('sidebarOverlay').classList.toggle('open');
+      });
+      document.getElementById('sidebarOverlay')?.addEventListener('click', () => {
+        document.getElementById('mainSidebar').classList.remove('open');
+        document.getElementById('sidebarOverlay').classList.remove('open');
+      });
+      loadDashboardPage('profile');
+    }
+
+    function attachNavEvents() {
+      document.querySelectorAll('.nav-item').forEach(item => {
+        item.addEventListener('click', async () => {
+          const page = item.getAttribute('data-page');
+          if (page === 'logout') {
+            await api('api/logout.php', { method:'POST' });
+            currentStudent = null;
+            showToast('Logged out. Goodbye!', 'info');
+            setTimeout(renderLanding, 500);
+          } else {
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+            item.classList.add('active');
+            document.getElementById('mainSidebar')?.classList.remove('open');
+            document.getElementById('sidebarOverlay')?.classList.remove('open');
+            loadDashboardPage(page);
+          }
+        });
+      });
+    }
+
+    function loadDashboardPage(page) {
+      const titles = { profile:'My Profile', register:'Course Registration', results:'Academic Results', videos:'My Videos' };
+      const t = document.getElementById('pageTitle');
+      if (t) t.innerText = titles[page] || 'Dashboard';
+      if (page === 'profile')   renderStudentProfile();
+      else if (page === 'register') renderStudentRegistration();
+      else if (page === 'results')  renderStudentResults();
+      else if (page === 'videos')   renderStudentVideos();
+    }
+
+    function setLoading(show) {
+      const pc = document.getElementById('pageContent');
+      if (show && pc) pc.innerHTML = '<div class="spinner"></div>';
+    }
+
+    // ─────────────────────────────────────────────────────────
+    // PROFILE
+    // ─────────────────────────────────────────────────────────
+    async function renderStudentProfile() {
+      setLoading(true);
+      const data = await api('api/profile.php');
+      if (!data.success) { showToast('Could not load profile.', 'error'); return; }
+      const s = data.student;
+      currentStudent = s;
+
+      document.getElementById('pageContent').innerHTML = `
+        <div class="d-card">
+          <div class="d-card-hd">
+            <div class="d-card-ico"><i class="fas fa-id-card"></i></div>
+            <h3>Student Profile</h3>
+          </div>
+          <div class="profile-layout">
+            <div class="avatar-block">
+              <div class="avatar-wrapper">
+                <div class="avatar-circle" id="avatarDisplay">
+                  ${s.profile_photo
+                    ? `<img src="${s.profile_photo}" style="width:100%;height:100%;object-fit:cover;" alt="profile">`
+                    : '<i class="fas fa-user-graduate" style="font-size:3.2rem;"></i>'}
+                </div>
+                <div class="avatar-edit-overlay" id="avatarEditOverlay"><i class="fas fa-camera"></i> Change</div>
+              </div>
+              <input type="file" id="picFileInput" accept="image/*" style="display:none;">
+              <button class="btn-sm" id="uploadPicBtn"><i class="fas fa-camera"></i> Change Photo</button>
+            </div>
+            <div id="profileInfoDisplay">
+              <div class="info-grid">
+                <div class="info-field"><div class="info-lbl">Full Name</div><div class="info-val">${s.name}</div></div>
+                <div class="info-field"><div class="info-lbl">Index Number</div><div class="info-val mono">${s.index_number}</div></div>
+                <div class="info-field"><div class="info-lbl">Email Address</div><div class="info-val">${s.email}</div></div>
+                <div class="info-field"><div class="info-lbl">Phone Number</div><div class="info-val">${s.phone || '<span style="color:var(--text-muted);font-style:italic;font-weight:400;">Not set</span>'}</div></div>
+                <div class="info-field"><div class="info-lbl">Programme</div><div class="info-val">${s.program}</div></div>
+                <div class="info-field"><div class="info-lbl">Year / Semester</div><div class="info-val">Year ${s.year}, Semester ${s.semester}</div></div>
+              </div>
+              <div style="margin-top:24px;">
+                <button class="btn-sm primary" id="editProfileBtn"><i class="fas fa-edit"></i> Edit Profile</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+
+      const triggerPic = () => document.getElementById('picFileInput').click();
+      document.getElementById('uploadPicBtn')?.addEventListener('click', triggerPic);
+      document.getElementById('avatarEditOverlay')?.addEventListener('click', triggerPic);
+      document.getElementById('picFileInput')?.addEventListener('change', async (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+        const fd = new FormData(); fd.append('photo', file);
+        const btn = document.getElementById('uploadPicBtn');
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Uploading&hellip;'; btn.disabled = true;
+        const res = await fetch('api/upload_photo.php', { method:'POST', body:fd, credentials:'same-origin' });
+        const resp = await res.json();
+        btn.innerHTML = '<i class="fas fa-camera"></i> Change Photo'; btn.disabled = false;
+        if (resp.success) {
+          currentStudent.profile_photo = resp.photo_url;
+          const el = document.getElementById('avatarDisplay');
+          if (el) el.innerHTML = `<img src="${resp.photo_url}" style="width:100%;height:100%;object-fit:cover;">`;
+          const ta = document.getElementById('topbarAvatar');
+          if (ta) ta.innerHTML = `<img src="${resp.photo_url}" alt="avatar">`;
+          showToast('Profile photo updated!', 'success');
+        } else { showToast(resp.message || 'Upload failed.', 'error'); }
+      });
+
+      document.getElementById('editProfileBtn')?.addEventListener('click', () => {
+        document.getElementById('profileInfoDisplay').innerHTML = `
+          <label class="edit-label">Email Address</label>
+          <input class="edit-input" id="editEmail" type="email" value="${s.email}" placeholder="Email">
+          <label class="edit-label">Phone Number</label>
+          <input class="edit-input" id="editPhone" type="tel" value="${s.phone || ''}" placeholder="+233 XX XXX XXXX">
+          <div style="display:flex;gap:10px;margin-top:18px;flex-wrap:wrap;">
+            <button class="btn-sm primary" id="saveProfileBtn"><i class="fas fa-save"></i> Save Changes</button>
+            <button class="btn-sm" id="cancelEditBtn">Cancel</button>
+          </div>
+        `;
+        document.getElementById('saveProfileBtn')?.addEventListener('click', async () => {
+          const email = document.getElementById('editEmail').value.trim();
+          const phone = document.getElementById('editPhone').value.trim();
+          if (!email) { showToast('Email cannot be empty.', 'error'); return; }
+          const res = await api('api/profile.php', { method:'POST', body: JSON.stringify({ email, phone }) });
+          if (res.success) {
+            currentStudent.email = res.email; currentStudent.phone = res.phone;
+            showToast('Profile updated!', 'success'); renderStudentProfile();
+          } else { showToast(res.message || 'Update failed.', 'error'); }
+        });
+        document.getElementById('cancelEditBtn')?.addEventListener('click', renderStudentProfile);
+      });
+    }
+
+    // ─────────────────────────────────────────────────────────
+    // COURSE REGISTRATION
+    // ─────────────────────────────────────────────────────────
+    async function renderStudentRegistration() {
+      setLoading(true);
+      const data = await api('api/courses.php');
+      if (!data.success) { showToast('Could not load courses.', 'error'); return; }
+      const { courses, count, total_credits } = data;
+
+      document.getElementById('pageContent').innerHTML = `
+        <div class="d-card">
+          <div class="d-card-hd">
+            <div class="d-card-ico"><i class="fas fa-book-open"></i></div>
+            <h3>Course Registration</h3>
+          </div>
+          <div class="reg-stats">
+            <div class="reg-stat">
+              <div class="reg-stat-ico"><i class="fas fa-calendar-alt"></i></div>
+              <div><div class="reg-stat-lbl">Current Period</div><div class="reg-stat-num" style="font-size:1rem;">Sem ${currentStudent.semester} &bull; Year ${currentStudent.year}</div></div>
+            </div>
+            <div class="reg-stat">
+              <div class="reg-stat-ico"><i class="fas fa-book"></i></div>
+              <div><div class="reg-stat-lbl">Courses Registered</div><div class="reg-stat-num">${count} <span style="font-size:.8rem;font-weight:500;color:var(--text-muted);">/ 5</span></div></div>
+            </div>
+            <div class="reg-stat">
+              <div class="reg-stat-ico"><i class="fas fa-star"></i></div>
+              <div><div class="reg-stat-lbl">Total Credits</div><div class="reg-stat-num">${total_credits}</div></div>
+            </div>
+          </div>
+          <div style="overflow-x:auto;">
+            <table class="data-table">
+              <thead><tr><th>Code</th><th>Course Name</th><th>Credits</th><th>Lecturer</th><th>Status</th><th>Action</th></tr></thead>
+              <tbody>
+                ${courses.map(c => `
+                  <tr>
+                    <td><span class="code-pill">${c.code}</span></td>
+                    <td style="font-weight:500;">${c.name}</td>
+                    <td style="text-align:center;font-weight:600;color:var(--text-mid);">${c.credits}</td>
+                    <td style="color:var(--text-soft);font-size:.84rem;">${c.lecturer}</td>
+                    <td><span class="status-chip ${c.registered ? 'registered' : 'none'}">${c.registered ? '<i class="fas fa-check"></i> Registered' : '&mdash; Not registered'}</span></td>
+                    <td><button class="tbl-btn ${c.registered ? 'drop' : 'enroll'}" onclick="toggleCourse('${c.code}',${c.registered})">
+                      ${c.registered ? '<i class="fas fa-times"></i> Drop' : '<i class="fas fa-plus"></i> Register'}
+                    </button></td>
+                  </tr>`).join('')}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      `;
+    }
+
+    window.toggleCourse = async function(code, isRegistered) {
+      const method = isRegistered ? 'DELETE' : 'POST';
+      const data = await api('api/courses.php', { method, body: JSON.stringify({ course_code: code }) });
+      if (data.success) {
+        showToast(isRegistered ? 'Course dropped.' : 'Course registered!', isRegistered ? 'error' : 'success');
+        renderStudentRegistration();
+      } else { showToast(data.message || 'Action failed.', 'warning'); }
+    };
+
+    // ─────────────────────────────────────────────────────────
+    // RESULTS
+    // ─────────────────────────────────────────────────────────
+    async function renderStudentResults() {
+      setLoading(true);
+      const data = await api('api/results.php');
+      if (!data.success) { showToast('Could not load results.', 'error'); return; }
+      const { results, gpa, total_credits, classification } = data;
+      const gpaNum = parseFloat(gpa);
+      const getGradeClass = g => g.startsWith('A') ? 'grade-A' : g.startsWith('B') ? 'grade-B' : g.startsWith('C') ? 'grade-C' : g === 'F' ? 'grade-F' : '';
+
+      document.getElementById('pageContent').innerHTML = `
+        <div class="gpa-banner">
+          <div class="gpa-circle">
+            <span class="gpa-num">${gpa}</span>
+            <span class="gpa-lbl-sm">GPA</span>
+          </div>
+          <div class="gpa-info">
+            <h3>${currentStudent.name}</h3>
+            <p>${currentStudent.program} &bull; ${total_credits} credit hours</p>
+            <span class="gpa-class">${classification}</span>
+          </div>
+        </div>
+        <div class="d-card">
+          <div class="d-card-hd">
+            <div class="d-card-ico"><i class="fas fa-chart-line"></i></div>
+            <h3>Academic Results</h3>
+          </div>
+          ${results.length === 0
+            ? `<div style="text-align:center;padding:48px 20px;color:var(--text-muted);">
+                <i class="fas fa-inbox" style="font-size:2.5rem;margin-bottom:14px;display:block;opacity:.35;"></i>
+                <p>No results available yet.</p>
+               </div>`
+            : `<div style="overflow-x:auto;">
+                <table class="data-table">
+                  <thead><tr><th>Code</th><th>Course Name</th><th style="text-align:center;">Credits</th><th style="text-align:center;">Grade</th><th style="text-align:center;">Points</th></tr></thead>
+                  <tbody>
+                    ${results.map(r => `<tr>
+                      <td><span class="code-pill">${r.code}</span></td>
+                      <td style="font-weight:500;">${r.name}</td>
+                      <td style="text-align:center;">${r.credits}</td>
+                      <td style="text-align:center;"><span class="${getGradeClass(r.grade)}">${r.grade}</span></td>
+                      <td style="text-align:center;color:var(--text-soft);">${r.points}</td>
+                    </tr>`).join('')}
+                  </tbody>
+                </table>
+               </div>`
+          }
+        </div>
+      `;
+    }
+
+    // ─────────────────────────────────────────────────────────
+    // VIDEOS
+    // ─────────────────────────────────────────────────────────
+    async function renderStudentVideos() {
+      setLoading(true);
+      const data = await api('api/videos.php');
+      if (!data.success) { showToast('Could not load videos.', 'error'); return; }
+      const videos = data.videos;
+
+      document.getElementById('pageContent').innerHTML = `
+        <div class="d-card">
+          <div class="d-card-hd">
+            <div class="d-card-ico"><i class="fas fa-video"></i></div>
+            <h3>My Videos</h3>
+          </div>
+          <div class="upload-zone" id="videoUploadArea">
+            <div class="upload-zone-ico"><i class="fas fa-cloud-upload-alt"></i></div>
+            <h3>Upload a Video</h3>
+            <p>MP4, WebM, MOV &mdash; max 200 MB &mdash; stored on server</p>
+            <input type="file" id="videoFileInput" accept="video/*" style="display:none;">
+          </div>
+          <div class="progress-bar hidden" id="progressBarWrapper"><div class="progress-fill" id="progressFill"></div></div>
+          <div class="upload-status" id="uploadStatus"></div>
+          <div id="videoList">
+            ${videos.length === 0
+              ? `<p style="text-align:center;color:var(--text-muted);padding:28px;"><i class="fas fa-film" style="margin-right:7px;opacity:.4;"></i>No videos uploaded yet.</p>`
+              : `<div class="video-grid">
+                  ${videos.map(v => `
+                    <div class="video-card">
+                      <div class="video-thumb" onclick="playVideo('${v.url}')"><i class="fas fa-play"></i></div>
+                      <div class="vid-body">
+                        <div class="vid-name">${v.original_name}</div>
+                        <div class="vid-meta">
+                          <span><i class="fas fa-calendar-alt"></i> ${v.uploaded_at}</span>
+                          <span><i class="fas fa-hdd"></i> ${(v.file_size/1024/1024).toFixed(1)} MB</span>
+                        </div>
+                        <button class="btn-delete" onclick="deleteVideo(${v.id})"><i class="fas fa-trash"></i> Delete</button>
+                      </div>
+                    </div>`).join('')}
+                </div>`
+            }
+          </div>
+        </div>
+      `;
+
+      document.getElementById('videoUploadArea')?.addEventListener('click', () => document.getElementById('videoFileInput').click());
+      document.getElementById('videoFileInput')?.addEventListener('change', (e) => {
+        const file = e.target.files[0]; if (!file) return;
+        const wrapper = document.getElementById('progressBarWrapper');
+        const fill    = document.getElementById('progressFill');
+        const status  = document.getElementById('uploadStatus');
+        wrapper?.classList.remove('hidden');
+        const fd = new FormData(); fd.append('video', file);
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', 'api/upload_video.php'); xhr.withCredentials = true;
+        xhr.upload.onprogress = (e) => {
+          if (e.lengthComputable) {
+            const pct = Math.round((e.loaded / e.total) * 100);
+            if (fill)   fill.style.width = pct + '%';
+            if (status) status.innerText = `Uploading\u2026 ${pct}%`;
+          }
+        };
+        xhr.onload = () => {
+          const resp = JSON.parse(xhr.responseText);
+          if (resp.success) { showToast('Video uploaded!', 'success'); renderStudentVideos(); }
+          else { showToast(resp.message || 'Upload failed.', 'error'); wrapper?.classList.add('hidden'); if (status) status.innerText = ''; }
+        };
+        xhr.onerror = () => { showToast('Upload error. Check your connection.', 'error'); wrapper?.classList.add('hidden'); };
+        xhr.send(fd);
+      });
+    }
+
+    window.playVideo = function(url) {
+      const vid = document.getElementById('modalVideo');
+      const modal = document.getElementById('videoModal');
+      if (vid && modal) { vid.src = url; modal.style.display = 'flex'; vid.play(); }
+    };
+
+    window.deleteVideo = async function(id) {
+      const data = await api('api/videos.php', { method:'DELETE', body: JSON.stringify({ video_id: id }) });
+      if (data.success) { showToast('Video deleted.', 'error'); renderStudentVideos(); }
+      else { showToast(data.message || 'Delete failed.', 'warning'); }
+    };
+
+    // ─────────────────────────────────────────────────────────
+    // VIDEO MODAL CLOSE
+    // ─────────────────────────────────────────────────────────
+    document.getElementById('closeModalBtn')?.addEventListener('click', () => {
+      document.getElementById('videoModal').style.display = 'none';
+      const v = document.getElementById('modalVideo'); if (v) { v.pause(); v.src = ''; }
+    });
+    document.getElementById('videoModal')?.addEventListener('click', e => {
+      if (e.target === document.getElementById('videoModal')) {
+        document.getElementById('videoModal').style.display = 'none';
+        const v = document.getElementById('modalVideo'); if (v) { v.pause(); v.src = ''; }
+      }
+    });
+
+    // ─────────────────────────────────────────────────────────
+    // INIT
+    // ─────────────────────────────────────────────────────────
+    (async function init() {
+      try {
+        const data = await api('api/profile.php');
+        if (data.success) { currentStudent = data.student; renderDashboard(); }
+        else { renderLanding(); }
+      } catch { renderLanding(); }
+    })();
+  </script>
+</body>
+</html>
