@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inspired by Belle — Something Cool is Coming</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold:    #c9a96e;
+      --gold-lt: #e8d5b0;
+      --cream:   #f5f0e8;
+      --ink:     #0c0b09;
+      --muted:   #7a6e60;
+    }
+
+    html, body {
+      height: 100%;
+      background: var(--ink);
+      color: var(--cream);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      overflow: hidden;
+    }
+
+    /* ── canvas particles ── */
+    #canvas {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── diagonal grain overlay ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.6;
+    }
+
+    /* ── layout ── */
+    .stage {
+      position: relative;
+      z-index: 2;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    /* ── top rule line ── */
+    .rule {
+      width: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin-bottom: 3rem;
+      animation: expandRule 1.6s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+    }
+    @keyframes expandRule { to { width: min(420px, 80vw); } }
+
+    /* ── logo ── */
+    .logo-wrap {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
+      margin-bottom: 2.8rem;
+    }
+    .logo-wrap img {
+      width: clamp(140px, 30vw, 240px);
+      height: auto;
+      filter: drop-shadow(0 0 28px rgba(201, 169, 110, 0.35));
+      border-radius: 4px;
+    }
+
+    /* ── badge ── */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid var(--gold);
+      padding: 6px 18px;
+      letter-spacing: 0.22em;
+      font-size: 0.62rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0;
+      animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 1s forwards;
+      margin-bottom: 2rem;
+    }
+    .badge::before,
+    .badge::after {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.6;
+    }
+
+    /* ── hero headline ── */
+    .headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.6rem, 7vw, 5.4rem);
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: 0.02em;
+      color: var(--cream);
+      opacity: 0;
+      animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 1.2s forwards;
+      margin-bottom: 1rem;
+    }
+    .headline em {
+      font-style: italic;
+      color: var(--gold-lt);
+    }
+
+    /* ── sub rule ── */
+    .sub-rule {
+      width: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 1.6rem auto;
+      animation: expandRule 1.4s cubic-bezier(0.16, 1, 0.3, 1) 1.6s forwards;
+    }
+
+    /* ── cta block ── */
+    .cta {
+      opacity: 0;
+      animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 1.9s forwards;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .cta-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 300;
+    }
+    .cta-phone {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.3rem, 4vw, 2rem);
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      color: var(--cream);
+      text-decoration: none;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+    .cta-phone::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--gold);
+      transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .cta-phone:hover { color: var(--gold-lt); }
+    .cta-phone:hover::after { width: 100%; }
+
+    /* ── bottom wordmark ── */
+    .wordmark {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.58rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--muted);
+      opacity: 0;
+      animation: fadeUp 1s ease 2.4s forwards;
+      white-space: nowrap;
+      z-index: 2;
+    }
+
+    /* ── corner accents ── */
+    .corner {
+      position: fixed;
+      width: 40px;
+      height: 40px;
+      z-index: 2;
+      opacity: 0;
+      animation: fadeIn 1.5s ease 1s forwards;
+    }
+    .corner::before, .corner::after {
+      content: '';
+      position: absolute;
+      background: var(--gold);
+      opacity: 0.5;
+    }
+    .corner::before { width: 100%; height: 1px; }
+    .corner::after  { width: 1px; height: 100%; }
+    .corner.tl { top: 28px; left: 28px; }
+    .corner.tr { top: 28px; right: 28px; transform: scaleX(-1); }
+    .corner.bl { bottom: 28px; left: 28px; transform: scaleY(-1); }
+    .corner.br { bottom: 28px; right: 28px; transform: scale(-1); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    @media (max-width: 480px) {
+      .corner { width: 28px; height: 28px; }
+      .corner.tl, .corner.tr { top: 18px; }
+      .corner.tl, .corner.bl { left: 18px; }
+      .corner.tr, .corner.br { right: 18px; }
+      .corner.bl, .corner.br { bottom: 18px; }
+      .rule, .sub-rule { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="canvas"></canvas>
+
+  <!-- corner accents -->
+  <div class="corner tl"></div>
+  <div class="corner tr"></div>
+  <div class="corner bl"></div>
+  <div class="corner br"></div>
+
+  <main class="stage">
+    <div class="rule"></div>
+
+    <div class="logo-wrap">
+      <img src="Inspired Logo.JPG.jpeg" alt="Inspired by Belle" />
+    </div>
+
+    <div class="badge">Coming Soon</div>
+
+    <h1 class="headline">Something <em>Cool</em><br>is Coming</h1>
+
+    <div class="sub-rule"></div>
+
+    <div class="cta">
+      <span class="cta-label">Can't wait? Call us</span>
+      <a class="cta-phone" href="tel:+233506479779">+233 50 647 9779</a>
+    </div>
+  </main>
+
+  <p class="wordmark">Inspired by Belle &nbsp;·&nbsp; Est. 2025</p>
+
+  <script>
+    // ── floating gold dust particles ──
+    const canvas = document.getElementById('canvas');
+    const ctx    = canvas.getContext('2d');
+
+    let W, H, particles = [];
+
+    function resize() {
+      W = canvas.width  = window.innerWidth;
+      H = canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', () => { resize(); init(); });
+
+    const GOLD_COLORS = [
+      'rgba(201,169,110,',
+      'rgba(232,213,176,',
+      'rgba(180,148, 90,',
+    ];
+
+    function randomParticle() {
+      return {
+        x:    Math.random() * W,
+        y:    Math.random() * H + H * 0.1,
+        r:    Math.random() * 1.6 + 0.3,
+        vy:  -(Math.random() * 0.35 + 0.12),
+        vx:   (Math.random() - 0.5) * 0.15,
+        a:    Math.random() * 0.45 + 0.05,
+        da:   (Math.random() - 0.5) * 0.002,
+        col:  GOLD_COLORS[Math.floor(Math.random() * GOLD_COLORS.length)],
+      };
+    }
+
+    function init() {
+      particles = Array.from({ length: 80 }, randomParticle);
+    }
+    init();
+
+    function tick() {
+      ctx.clearRect(0, 0, W, H);
+      for (const p of particles) {
+        p.y  += p.vy;
+        p.x  += p.vx;
+        p.a  += p.da;
+        if (p.a < 0.03) p.da =  Math.abs(p.da);
+        if (p.a > 0.55) p.da = -Math.abs(p.da);
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = p.col + p.a + ')';
+        ctx.fill();
+
+        // reset particle when it drifts off top
+        if (p.y < -10) {
+          p.y = H + 10;
+          p.x = Math.random() * W;
+        }
+        if (p.x < -10 || p.x > W + 10) {
+          p.x = Math.random() * W;
+        }
+      }
+      requestAnimationFrame(tick);
+    }
+    tick();
+  </script>
+</body>
+</html>
